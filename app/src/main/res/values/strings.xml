@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">HT</string>
+    <string-array name="types">
+        <item>問題類型</item>
+        <item>問題類型</item>
+        <item>問題類型</item>
+        <item>問題類型</item>
+        <item>問題類型</item>
+    </string-array>
+</resources>
