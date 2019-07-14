@@ -33,4 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(it);
     }
+    public void gotonotice(View v) {
+        Intent it = new Intent(this, noticeActivity.class);
+
+        startActivity(it);
+    }
 }
