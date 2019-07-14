@@ -3,6 +3,7 @@ package com.example.ht;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     TextView hottea;
     Button askbutton,ansbutton,noticebutton,menubutton;
+
+    float x1 = 0, x2 = 0, y1 = 0, y2 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,28 @@ public class MainActivity extends AppCompatActivity {
         ansbutton= (Button)findViewById(R.id.ansbutton);
         noticebutton = (Button)findViewById(R.id.noticebutton);
         menubutton = (Button)findViewById(R.id.menubutton);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        if(event.getAction() == MotionEvent.ACTION_DOWN){
+            //手指按下
+            x1 = event.getX();
+            x2 = event.getY();
+        }
+
+        if(event.getAction() == MotionEvent.ACTION_UP){
+            //手指離開
+            x2 = event.getX();
+            y2 = event.getY();
+
+            if(x1 - x2 > 50){
+                gotohisask();
+
+            }
+
+        }
+        return true;
     }
 
     public void gotoask(View v) {
@@ -35,6 +60,12 @@ public class MainActivity extends AppCompatActivity {
     }
     public void gotonotice(View v) {
         Intent it = new Intent(this, noticeActivity.class);
+
+        startActivity(it);
+    }
+
+    public void gotohisask(){
+        Intent it = new Intent(this, hisAsk.class );
 
         startActivity(it);
     }

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".noticeActivity"></activity>
+        <activity android:name=".hisAsk"></activity>
+        <activity android:name=".noticeActivity" />
         <activity android:name=".ansActivity" />
         <activity android:name=".askActivity" />
         <activity android:name=".MainActivity">
