@@ -1,5 +1,6 @@
 package com.example.ht;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ButtonBarLayout;
@@ -31,5 +32,12 @@ public class noticeActivity extends AppCompatActivity {
 
     public void gotohome(View v) {
         finish();
+    }
+
+    public void gotomenu(View v) {
+        Intent it = new Intent(this, menuActivity.class);
+
+
+        startActivity(it);
     }
 }

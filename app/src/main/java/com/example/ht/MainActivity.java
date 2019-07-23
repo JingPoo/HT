@@ -39,9 +39,8 @@ public class MainActivity extends AppCompatActivity {
             x2 = event.getX();
             y2 = event.getY();
 
-            if(x1 - x2 > 50){
+            if(x1 - x2 > 50){  //左滑
                 gotohisask();
-
             }
 
         }

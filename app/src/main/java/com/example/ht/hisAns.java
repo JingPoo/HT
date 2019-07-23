@@ -6,13 +6,13 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 
-public class hisAsk extends AppCompatActivity {
+public class hisAns extends AppCompatActivity {
     float x1 = 0, x2 = 0, y1 = 0, y2 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_his_ask);
+        setContentView(R.layout.activity_his_ans);
     }
 
     @Override
@@ -30,9 +30,6 @@ public class hisAsk extends AppCompatActivity {
 
             if(x1 - x2 < 50){
                 finish();
-            }
-            else if(x1 - x2 > 50){
-                gotohisans();
             }
 
         }
@@ -53,11 +50,4 @@ public class hisAsk extends AppCompatActivity {
 
         startActivity(it);
     }
-
-    public void gotohisans(){
-        Intent it = new Intent(this, hisAns.class );
-        startActivity(it);
-    }
-
-
 }

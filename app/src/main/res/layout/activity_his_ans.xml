@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#607CB342"
-    tools:context=".hisAsk">
+    tools:context=".hisAns">
 
     <TextView
-        android:id="@+id/notice"
+        android:id="@+id/notice7"
         android:layout_width="318dp"
         android:layout_height="52dp"
         android:layout_marginStart="48dp"
@@ -17,30 +17,53 @@
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
         android:background="#B4FFFFFF"
-        android:text="提出的疑問\n預覽的字..."
+        android:text="未回答的疑問"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hottea" />
+        app:layout_constraintTop_toBottomOf="@+id/notice6" />
 
     <TextView
-        android:id="@+id/notice1"
+        android:id="@+id/notice6"
         android:layout_width="318dp"
         android:layout_height="52dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="#B4FFFFFF"
-        android:text="提出的疑問\n預覽的字..."
+        android:text="未回答的疑問"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notice" />
+        app:layout_constraintTop_toBottomOf="@+id/hottea2" />
 
     <Button
-        android:id="@+id/noticebutton"
+        android:id="@+id/menubutton2"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="gotomenu"
+        android:text="選單"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hottea2"
+        android:layout_width="113dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="32dp"
+        android:text="Hot Tea"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/noticebutton2"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginStart="44dp"
@@ -54,29 +77,4 @@
         app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toEndOf="@+id/hottea"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/hottea"
-        android:layout_width="113dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="32dp"
-        android:text="Hot Tea"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/menubutton"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:onClick="gotomenu"
-        android:text="選單"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 </android.support.constraint.ConstraintLayout>
