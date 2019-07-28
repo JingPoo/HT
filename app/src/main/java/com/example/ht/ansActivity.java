@@ -32,6 +32,14 @@ public class ansActivity extends AppCompatActivity {
         linearLayout = (LinearLayout)findViewById(R.id.linearLayout);
         anstext = (EditText)findViewById(R.id.anstext);
 
+        //set Title
+        String title = "Title";
+        questitle.setText(title);
+
+        //set Content
+        String content = "Content";
+        quescontent.setText(content);
+
     }
 
     public void gotohome(View v) {
@@ -48,7 +56,11 @@ public class ansActivity extends AppCompatActivity {
         startActivity(it);
     }
 
-    public void deleteText(View v){
+    public void returnAns(View v){
+        String ans = anstext.getText().toString();
         anstext.setText("");
+
+        //testing
+        System.out.println(ans);
     }
 }

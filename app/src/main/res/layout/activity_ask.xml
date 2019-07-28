@@ -66,7 +66,7 @@
         android:background="#B4FFFFFF"
         android:ems="10"
         android:hint="你想問甚麼?"
-        android:inputType="textPersonName"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/backimageButton"
         app:layout_constraintTop_toBottomOf="@+id/noticebutton" />
@@ -74,7 +74,7 @@
     <EditText
         android:id="@+id/quescontent"
         android:layout_width="307dp"
-        android:layout_height="229dp"
+        android:layout_height="63dp"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
         android:layout_marginTop="16dp"
@@ -129,6 +129,7 @@
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
         android:background="#BE364B0A"
+        android:onClick="sendAsk"
         android:text="我想喝杯熱茶"
         android:textColor="#F7FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
