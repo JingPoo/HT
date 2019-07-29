@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">HT</string>
     <string-array name="types">
-        <item>問題類型</item>
-        <item>問題類型</item>
-        <item>問題類型</item>
-        <item>問題類型</item>
-        <item>問題類型</item>
+        <item>感情</item>
+        <item>家庭</item>
+        <item>課業</item>
+        <item>未來</item>
+        <item>生活</item>
     </string-array>
 </resources>

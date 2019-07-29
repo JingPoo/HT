@@ -102,7 +102,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="418dp"
         android:layout_height="96dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="40dp"
         android:background="#A13C3636"
         android:orientation="horizontal"
         android:padding="20dp"
@@ -123,15 +123,15 @@
             android:layout_width="72dp"
             android:layout_height="54dp"
             android:background="#717465"
-            android:onClick="deleteText"
+            android:onClick="returnAns"
             app:srcCompat="@android:drawable/ic_media_play" />
 
     </LinearLayout>
 
     <TextView
         android:id="@+id/quescontent"
-        android:layout_width="242dp"
-        android:layout_height="162dp"
+        android:layout_width="251dp"
+        android:layout_height="37dp"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
         android:layout_marginTop="16dp"
