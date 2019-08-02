@@ -4,61 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#607CB342"
+    android:background="#EDF1D5"
     android:clickable="false"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/askbutton"
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="360dp"
-        android:onClick="gotoask"
-        android:text="發問"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/ansbutton"
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="360dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
-        android:onClick="gotoans"
-        android:text="回答"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    //登入文字標籤
     <TextView
         android:id="@+id/hottea"
         android:layout_width="113dp"
         android:layout_height="48dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="32dp"
-        android:text="Hot Tea"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="8dp"
+        android:text="登入"
+        android:textAlignment="center"
+        android:textColor="#5C832F"
         android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/noticebutton"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:onClick="gotonotice"
-        android:text="通知"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.953"
-        app:layout_constraintStart_toEndOf="@+id/hottea"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="登入" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline2"
@@ -67,16 +32,82 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
-    <Button
-        android:id="@+id/menubutton"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:onClick="gotomenu"
-        android:text="選單"
+    //輸入帳號text box
+    <EditText
+        android:id="@+id/signinuserText"
+        android:layout_width="308dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="94dp"
+        android:layout_marginEnd="8dp"
+        android:background="#B4FFFFFF"
+        android:ems="15"
+        android:gravity="start|top"
+        android:hint="帳號"
+        android:inputType="textMultiLine"
+        android:password="false"
+        android:textAlignment="textStart"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/hottea" />
 
+    //輸入密碼text box
+    <EditText
+        android:id="@+id/signinpassText"
+        android:layout_width="308dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#B4FFFFFF"
+        android:ems="10"
+        android:hint="密碼"
+        android:inputType="textPassword"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/signinuserText"
+        app:layout_constraintVertical_bias="0.093" />
+
+    //前往註冊頁面的按鈕
+    <Button
+        android:id="@+id/signupbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="164dp"
+        android:background="#00FFFFFF"
+        android:text="註冊"
+        android:onClick="gotoSignUp"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/gomainpageButton" />
+
+    //文字
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="164dp"
+        android:text="還沒有帳號嗎？"
+        android:onClick="gotoSignUp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gomainpageButton" />
+
+    //帳密輸入正確後前往主頁的按鈕
+    <ImageButton
+        android:id="@+id/gomainpageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="316dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        android:onClick="gotoMainPage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signinpassText"
+        app:srcCompat="@drawable/rightarrow" />
 </android.support.constraint.ConstraintLayout>

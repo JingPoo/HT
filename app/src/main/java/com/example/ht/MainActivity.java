@@ -13,10 +13,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
-    TextView hottea;
-    Button askbutton,ansbutton,noticebutton,menubutton;
+    //TextView hottea;
+    //Button askbutton,ansbutton,noticebutton,menubutton;
 
-    float x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+    //float x1 = 0, x2 = 0, y1 = 0, y2 = 0;
 
     private FirebaseAnalytics mFirebaseAnalytics;
     private DatabaseReference databaseReference;
@@ -26,11 +26,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        hottea = (TextView)findViewById(R.id.hottea);
+        /*hottea = (TextView)findViewById(R.id.hottea);
         askbutton = (Button)findViewById(R.id.askbutton);
         ansbutton= (Button)findViewById(R.id.ansbutton);
         noticebutton = (Button)findViewById(R.id.noticebutton);
-        menubutton = (Button)findViewById(R.id.menubutton);
+        menubutton = (Button)findViewById(R.id.menubutton);*/
 
         // Obtain the FirebaseAnalytics instance.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
@@ -39,10 +39,24 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase mdb = FirebaseDatabase.getInstance();
         DatabaseReference mRef = mdb.getReference();
         DatabaseReference mDataRed = mRef.child("user");
-        FirebaseDatabase.getInstance().getReference().child("user").setValue("Eileen");
+        FirebaseDatabase.getInstance().getReference().child("user").setValue("Jiang");
     }
 
-    @Override
+    //去主頁的功能
+    public void gotoMainPage(View v) {
+        Intent it = new Intent(this, mainPageActivity.class);
+
+        startActivity(it);
+    }
+
+    //去註冊頁的功能
+    public void gotoSignUp(View v) {
+        Intent it = new Intent(this, signupActivity.class);
+
+        startActivity(it);
+    }
+
+    /*@Override
     public boolean onTouchEvent(MotionEvent event){
         if(event.getAction() == MotionEvent.ACTION_DOWN){
             //手指按下
@@ -90,5 +104,5 @@ public class MainActivity extends AppCompatActivity {
 
 
         startActivity(it);
-    }
+    }*/
 }
