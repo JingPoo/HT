@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EDF1D5"
+    tools:context=".signupActivity">
+
+    //註冊標題
+    <TextView
+        android:id="@+id/signuptextView"
+        android:layout_width="126dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="8dp"
+        android:text="註冊"
+        android:textAlignment="center"
+        android:textColor="#5C832F"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    //姓名欄位
+    <EditText
+        android:id="@+id/nameeditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="8dp"
+        android:background="#B4FFFFFF"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="真實姓名"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signuptextView" />
+
+    //學校電子郵件欄位
+    <EditText
+        android:id="@+id/emaileditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:background="#B4FFFFFF"
+        android:ems="10"
+        android:hint="學校電子郵件"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameeditText" />
+
+    //手機號碼欄位
+    <EditText
+        android:id="@+id/phoneeditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:background="#B4FFFFFF"
+        android:ems="10"
+        android:hint="手機號碼"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emaileditText" />
+
+    //設定帳號欄位
+    <EditText
+        android:id="@+id/usereditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        android:background="#B4FFFFFF"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="帳號"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneeditText" />
+
+    //設定密碼欄位
+    <EditText
+        android:id="@+id/psweditText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:background="#B4FFFFFF"
+        android:ems="10"
+        android:hint="密碼"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usereditText" />
+
+    //確認設定密碼欄位(再輸入一次密碼)
+
+    <EditText
+        android:id="@+id/psweditText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:background="#B4FFFFFF"
+        android:ems="10"
+        android:hint="再輸入一次密碼"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/psweditText1" />
+
+    //一些文字標籤
+    <EditText
+        android:id="@+id/notsignedupeditText"
+        android:layout_width="136dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="48dp"
+        android:background="#00FFFFFF"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="已經註冊了？去"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enterButton" />
+
+    //前往登入頁按鈕
+    <Button
+        android:id="@+id/signinbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:background="#00FFFFFF"
+        android:onClick="gotoSignIn"
+        android:text="登入"
+        app:layout_constraintStart_toEndOf="@+id/notsignedupeditText"
+        app:layout_constraintTop_toBottomOf="@+id/enterButton" />
+
+    //確認資料後去登入頁登入
+    <ImageButton
+        android:id="@+id/enterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="36dp"
+        android:background="#00FFFFFF"
+        android:onClick="gotoSignIn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/psweditText2"
+        app:srcCompat="@drawable/rightarrow" />
+</android.support.constraint.ConstraintLayout>

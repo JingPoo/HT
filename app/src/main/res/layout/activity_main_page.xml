@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EDF1D5"
+    android:visibility="visible"
+    tools:background="#EDF1D5"
+    tools:context=".mainPageActivity"
+    tools:visibility="visible">
+
+    //通知按鈕
+
+    <ImageButton
+        android:id="@+id/inboxButton"
+        android:layout_width="69dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="120dp"
+        android:background="#00FFFFFF"
+        android:onClick="gotonotice"
+        app:layout_constraintBottom_toTopOf="@+id/mountainView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textHotTea"
+        app:srcCompat="@drawable/inbox_small" />
+
+    //背景山
+    <ImageView
+        android:id="@+id/mountainView"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="120dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.546"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textHotTea"
+        app:srcCompat="@drawable/mountain" />
+
+    //茶杯按鈕-發問
+    <ImageButton
+        android:id="@+id/asknowButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="340dp"
+        android:layout_marginEnd="192dp"
+        android:background="#00FFFFFF"
+        android:onClick="gotoask"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textHotTea"
+        app:srcCompat="@drawable/smallcup" />
+
+    //茶壺按鈕-回答
+    <ImageButton
+        android:id="@+id/ansnowButton"
+        android:layout_width="257dp"
+        android:layout_height="296dp"
+        android:layout_marginTop="212dp"
+        android:background="#00FFFFFF"
+        android:onClick="gotoans"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textHotTea"
+        app:srcCompat="@drawable/smallpot" />
+
+    //Hot Tea標籤
+    <TextView
+        android:id="@+id/textHotTea"
+        android:layout_width="171dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Hot Tea"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024" />
+
+</android.support.constraint.ConstraintLayout>
