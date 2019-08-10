@@ -1,8 +1,10 @@
 package com.example.ht;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,8 +12,41 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 public class ansActivity extends AppCompatActivity {
+
+    //(Function) 抓出要回覆的問題id
+    String proid = "1";
+    private DatabaseReference proRef = FirebaseDatabase.getInstance().getReference("problem");
+    private DatabaseReference proDeRef = proRef.child(proid);
+    private DatabaseReference repRef =FirebaseDatabase.getInstance().getReference("reply");
+
+    public static final String REPID_KEY ="id_reply";
+    public static final String PROID_KEY ="id_problem";
+    public static final String CONTENT_KEY ="content_reply";
+    public static final String TEAID_KEY ="id_tea";
+    public static final String TIME_KEY ="time_reply";
+    public static final String REPORT_KEY ="been_reported_reply";
+    public static final String INAPPRO_KEY ="inappropriate_content_reply";
+    public static final String TAG ="ReplyingQuestion";
+
+
+
+
     TextView hottea,questitle,quescontent;
+    //TextView category,time;
     Button noticebutton,menubutton;
     ImageButton backimagebutton,sendimagebutton;
     LinearLayout linearLayout;
@@ -25,6 +60,8 @@ public class ansActivity extends AppCompatActivity {
         hottea = (TextView)findViewById(R.id.hottea);
         questitle = (TextView)findViewById(R.id.questitle);
         quescontent = (TextView)findViewById(R.id.quescontent);
+        //category = (TextView)findViewById(R.id.category);
+        //time = (TextView)findViewById(R.id.time);
         noticebutton = (Button)findViewById(R.id.noticebutton);
         menubutton = (Button)findViewById(R.id.menubutton);
         backimagebutton = (ImageButton)findViewById(R.id.backimageButton);
@@ -32,14 +69,29 @@ public class ansActivity extends AppCompatActivity {
         linearLayout = (LinearLayout)findViewById(R.id.linearLayout);
         anstext = (EditText)findViewById(R.id.anstext);
 
-        //set Title
+       /* //set Title
         String title = "Title";
         questitle.setText(title);
 
         //set Content
         String content = "Content";
         quescontent.setText(content);
+        */
 
+        proDeRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String title = dataSnapshot.child("title").getValue(String.class);
+                questitle.setText(title);
+                String content = dataSnapshot.child("content").getValue(String.class);
+                quescontent.setText(content);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public void gotohome(View v) {
@@ -57,10 +109,54 @@ public class ansActivity extends AppCompatActivity {
     }
 
     public void returnAns(View v){
+
+        //Time
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date sendTime = new Date(System.currentTimeMillis());
+        String repTime = formatter.format(sendTime);
+
+        //Been Reported (Function)
+        Boolean reported = false;
+
+        //Inappropriate Content (Function)
+        Boolean inappro = false;
+
+        // TeaID (Function)
+        String teaid = "001";
+
+       //隨機產生id_reply
+        repRef.push();
+
+        String repid = repRef.push().getKey();
+
         String ans = anstext.getText().toString();
         anstext.setText("");
 
+        if (ans.isEmpty() ) { return; }
+        Map<String, Object> dataToSave = new HashMap<String, Object>();
+
+        dataToSave.put(CONTENT_KEY,ans);
+        dataToSave.put(PROID_KEY,proid);
+        dataToSave.put(TIME_KEY,repTime);
+        dataToSave.put(REPORT_KEY,reported);
+        dataToSave.put(INAPPRO_KEY,inappro);
+        dataToSave.put(TEAID_KEY,teaid);
+
+        repRef.child(repid).setValue(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.d(TAG,"Document has been saved!");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w(TAG,"Document was not saved!",e);
+            }
+        });
+
         //testing
         System.out.println(ans);
+
+
     }
 }

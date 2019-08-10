@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase mdb = FirebaseDatabase.getInstance();
         DatabaseReference mRef = mdb.getReference();
         DatabaseReference mDataRed = mRef.child("user");
-        FirebaseDatabase.getInstance().getReference().child("user").setValue("Jiang");
+       // FirebaseDatabase.getInstance().getReference().child("user").setValue("HandsomeJing");
     }
 
     //去主頁的功能
