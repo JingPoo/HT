@@ -36,7 +36,7 @@ public class askActivity extends AppCompatActivity {
     public static final String CATEGORY_KEY ="category_problem";
     public static final String TIME_KEY ="time_problem";
     public static final String STAGE_KEY ="stage";
-    public static final String PROID_KEY ="id_problem";
+    //public static final String PROID_KEY ="id_problem";
     public static final String REPORT_KEY ="been_reported_problem";
     public static final String INAPPRO_KEY ="inappropriate_content_problem";
     public static final String TAG ="AskingQuestion";
@@ -124,8 +124,6 @@ public class askActivity extends AppCompatActivity {
         //Stage
         int stage = 1;
 
-        //Id (Function)
-        int id = 001;
 
         //Been Reported (Function)
         Boolean reported = false;
@@ -164,8 +162,10 @@ public class askActivity extends AppCompatActivity {
 
         questitle.setText("");
         quescontent.setText("");
+        type.setSelection(0);
+        //sendbutton.setText("已送出! 靜待回覆");
 
-
+        //看能不能加個彈跳視窗說已送出
     }
 
 }

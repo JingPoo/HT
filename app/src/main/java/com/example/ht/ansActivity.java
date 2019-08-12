@@ -51,6 +51,9 @@ public class ansActivity extends AppCompatActivity {
     ImageButton backimagebutton,sendimagebutton;
     LinearLayout linearLayout;
     EditText anstext;
+    String[] name = new String[50];
+    int ranPick = 0;
+    String proKey = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,13 +81,34 @@ public class ansActivity extends AppCompatActivity {
         quescontent.setText(content);
         */
 
-        proDeRef.addValueEventListener(new ValueEventListener() {
+        proRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String title = dataSnapshot.child("title").getValue(String.class);
-                questitle.setText(title);
-                String content = dataSnapshot.child("content").getValue(String.class);
-                quescontent.setText(content);
+
+
+
+                if (dataSnapshot.exists()) {
+                    int i = 0;
+                    for(DataSnapshot d : dataSnapshot.getChildren()) {
+                        name[i] = d.getKey();
+                        i++;
+                    }
+                    for(int j=0;j<50;j++) {
+                        System.out.println("This is all key" + name[j]);
+                    }
+
+                    //10可以改成抓線上problem的數量count
+                    ranPick = (int)(Math.random()*10);
+
+                    //System.out.println("This is ranPick:"+ranPick);
+                    proKey = name[ranPick];
+                    String title = dataSnapshot.child(proKey).child("title_problem").getValue(String.class);
+                    questitle.setText(title);
+                    //System.out.println("This is title:"+title);
+                    String content = dataSnapshot.child(proKey).child("content_problem").getValue(String.class);
+                    quescontent.setText(content);
+                    //System.out.println("This is content:"+content);
+                }
             }
 
             @Override
