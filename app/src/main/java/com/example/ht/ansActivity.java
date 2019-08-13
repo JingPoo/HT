@@ -77,37 +77,6 @@ public class ansActivity extends AppCompatActivity {
         linearLayout = (LinearLayout)findViewById(R.id.linearLayout);
         anstext = (EditText)findViewById(R.id.anstext);
 
-       /* //set Title
-        String title = "Title";
-        questitle.setText(title);
-
-        //set Content
-        String content = "Content";
-        quescontent.setText(content);
-        */
-        //String problemNum = proRef.child("_count").getKey();
-        //System.out.println(problemNum);
-
-        /*userCountRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                if (dataSnapshot.exists()) {
-                    //int i = 0;
-
-                    //System.out.println("This is num:"+dataSnapshot.
-                    num = (int)dataSnapshot.getValue();
-                    System.out.println("This is num:"+num);
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });*/
-
         rootRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -115,21 +84,20 @@ public class ansActivity extends AppCompatActivity {
                 if (dataSnapshot.exists()) {
                     int i = 0;
 
-                    //System.out.println("This is num:"+dataSnapshot.
-                    //int num = Integer.parseInt(userCountRef.getKey());
-                    //System.out.println("This is num:"+num);
-                    //int num = 50;
+                    //抓problem總數
                     num = Integer.parseInt(String.valueOf(dataSnapshot.child("count_problem").getValue()));
                     System.out.println("This is num:"+dataSnapshot.child("count_problem").getValue());
                     String[] name = new String[num];
 
+                    //把所有problem Key抓進來
                     for(DataSnapshot d : dataSnapshot.child("problem").getChildren()) {
                         name[i] = d.getKey();
                         i++;
                     }
-                    for(int j=0;j<num;j++) {
+                    //Test
+                    /*for(int j=0;j<num;j++) {
                         System.out.println("This is all key" + name[j]);
-                    }
+                    }*/
 
 
                     //10可以改成抓線上problem的數量count
