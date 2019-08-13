@@ -29,6 +29,7 @@ public class ansActivity extends AppCompatActivity {
 
     //(Function) 抓出要回覆的問題id
     String proid = "1";
+    private DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
     private DatabaseReference proRef = FirebaseDatabase.getInstance().getReference("problem");
     private DatabaseReference proDeRef = proRef.child(proid);
     private DatabaseReference repRef =FirebaseDatabase.getInstance().getReference("reply");
@@ -51,9 +52,13 @@ public class ansActivity extends AppCompatActivity {
     ImageButton backimagebutton,sendimagebutton;
     LinearLayout linearLayout;
     EditText anstext;
-    String[] name = new String[50];
+
+
+    //String[] name = new String[50];
     int ranPick = 0;
     String proKey = "";
+    //int num = 50;
+    int num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,32 +85,65 @@ public class ansActivity extends AppCompatActivity {
         String content = "Content";
         quescontent.setText(content);
         */
+        //String problemNum = proRef.child("_count").getKey();
+        //System.out.println(problemNum);
 
-        proRef.addValueEventListener(new ValueEventListener() {
+        /*userCountRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                if (dataSnapshot.exists()) {
+                    //int i = 0;
 
+                    //System.out.println("This is num:"+dataSnapshot.
+                    num = (int)dataSnapshot.getValue();
+                    System.out.println("This is num:"+num);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });*/
+
+        rootRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 if (dataSnapshot.exists()) {
                     int i = 0;
-                    for(DataSnapshot d : dataSnapshot.getChildren()) {
+
+                    //System.out.println("This is num:"+dataSnapshot.
+                    //int num = Integer.parseInt(userCountRef.getKey());
+                    //System.out.println("This is num:"+num);
+                    //int num = 50;
+                    num = Integer.parseInt(String.valueOf(dataSnapshot.child("count_problem").getValue()));
+                    System.out.println("This is num:"+dataSnapshot.child("count_problem").getValue());
+                    String[] name = new String[num];
+
+                    for(DataSnapshot d : dataSnapshot.child("problem").getChildren()) {
                         name[i] = d.getKey();
                         i++;
                     }
-                    for(int j=0;j<50;j++) {
+                    for(int j=0;j<num;j++) {
                         System.out.println("This is all key" + name[j]);
                     }
 
+
                     //10可以改成抓線上problem的數量count
-                    ranPick = (int)(Math.random()*10);
+                    ranPick = (int)(Math.random()*num);
+
+
+                    // ranPick = (int)(Math.random()* Double.parseDouble(userCount));
 
                     //System.out.println("This is ranPick:"+ranPick);
                     proKey = name[ranPick];
-                    String title = dataSnapshot.child(proKey).child("title_problem").getValue(String.class);
+                    String title = dataSnapshot.child("problem").child(proKey).child("title_problem").getValue(String.class);
                     questitle.setText(title);
                     //System.out.println("This is title:"+title);
-                    String content = dataSnapshot.child(proKey).child("content_problem").getValue(String.class);
+                    String content = dataSnapshot.child("problem").child(proKey).child("content_problem").getValue(String.class);
                     quescontent.setText(content);
                     //System.out.println("This is content:"+content);
                 }
@@ -148,7 +186,7 @@ public class ansActivity extends AppCompatActivity {
         // TeaID (Function)
         String teaid = "001";
 
-       //隨機產生id_reply
+        //隨機產生id_reply
         repRef.push();
 
         String repid = repRef.push().getKey();
