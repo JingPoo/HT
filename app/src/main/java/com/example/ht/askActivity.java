@@ -33,10 +33,13 @@ import java.lang.String;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.text.DateFormat.getDateTimeInstance;
+
 public class askActivity extends AppCompatActivity {
 
     //private DatabaseReference databaseReference;
     private DatabaseReference proRef = FirebaseDatabase.getInstance().getReference("problem");
+    private DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("user");
 
 
     public static final String TITLE_KEY ="title_problem";
@@ -49,6 +52,7 @@ public class askActivity extends AppCompatActivity {
     public static final String REPORT_KEY ="been_reported_problem";
     public static final String INAPPRO_KEY ="inappropriate_content_problem";
     public static final String TAG ="AskingQuestion";
+
 
     TextView hottea;
     Button noticebutton,sendbutton;
@@ -100,6 +104,8 @@ public class askActivity extends AppCompatActivity {
         it.putExtra("UserId", userId);
         startActivity(it);
     }
+
+
 
     public void sendAsk(View v){
 
@@ -199,6 +205,11 @@ public class askActivity extends AppCompatActivity {
                         Log.w(TAG, "Document was not saved!", e);
                     }
                 });
+              //  Map<String, Object> dataToSave2 = new HashMap<String, Object>();
+              //  dataToSave2.put(proid,askTitle);
+                if(userId.isEmpty() == false) {
+                    userRef.child(userId).child("problem").child(proid).setValue(askTitle);
+                }
 
                 questitle.setText("");
                 quescontent.setText("");
@@ -209,7 +220,6 @@ public class askActivity extends AppCompatActivity {
             }
 
         }
-
 
 
 

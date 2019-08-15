@@ -37,6 +37,7 @@ public class ansActivity extends AppCompatActivity {
     private DatabaseReference proRef = FirebaseDatabase.getInstance().getReference("problem");
     private DatabaseReference proDeRef = proRef.child(proid);
     private DatabaseReference repRef =FirebaseDatabase.getInstance().getReference("reply");
+    private DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("user");
 
     public static final String REPID_KEY ="id_reply";
     public static final String PROID_KEY ="id_problem";
@@ -204,6 +205,7 @@ public class ansActivity extends AppCompatActivity {
             dataToSave.put(REPORT_KEY, reported);
             dataToSave.put(INAPPRO_KEY, inappro);
             dataToSave.put(TEAID_KEY, teaid);
+            dataToSave.put(PROID_KEY,proKey);
 
             repRef.child(repid).setValue(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
@@ -216,6 +218,9 @@ public class ansActivity extends AppCompatActivity {
                     Log.w(TAG, "Document was not saved!", e);
                 }
             });
+            if(userId.isEmpty() == false) {
+                userRef.child(userId).child("reply").child(repid).setValue(ans);
+            }
             anstext.setText("");
             //testing
             System.out.println(ans);

@@ -155,7 +155,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:background="#00FFFFFF"
-        android:onClick="gotoSignIn"
+        android:onClick="backtosignin"
         android:text="登入"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/notsignedupeditText"
@@ -180,4 +180,5 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.87" />
+
 </android.support.constraint.ConstraintLayout>

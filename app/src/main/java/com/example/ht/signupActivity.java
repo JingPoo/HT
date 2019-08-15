@@ -65,6 +65,10 @@ public class signupActivity extends AppCompatActivity {
 
     }
 
+    public void backtosignin(View v){
+        finish();
+    }
+
     //去登入頁的功能
     public void gotoSignIn(View v) {
 
