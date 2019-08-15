@@ -19,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
 import java.sql.Array;
@@ -43,7 +44,7 @@ public class askActivity extends AppCompatActivity {
     public static final String CATEGORY_KEY ="category_problem";
     public static final String TIME_KEY ="time_problem";
     public static final String STAGE_KEY ="stage";
-    public static final String ASKER_KEY ="asker";
+    public static final String FROM_KEY ="from";
     //public static final String PROID_KEY ="id_problem";
     public static final String REPORT_KEY ="been_reported_problem";
     public static final String INAPPRO_KEY ="inappropriate_content_problem";
@@ -58,8 +59,8 @@ public class askActivity extends AppCompatActivity {
     String userId = "";
 
 
-    //髒話列表
-    ArrayList <String> a = new ArrayList(Arrays.asList("幹","靠","機掰","你娘","屎","乳頭","雞雞","雞掰","雞巴","雞八","王八","哭邀","哭腰","怪胎","腦殘"));
+    //髒話列表(要更新兩邊都要更新)
+    ArrayList <String> a = new ArrayList(Arrays.asList("幹","靠","機掰","你娘","屎","乳頭","雞雞","雞掰","雞巴","雞八","王八","哭邀","哭腰","怪胎","腦殘","白癡","北七","媽的"));
 
 
     @Override
@@ -165,6 +166,7 @@ public class askActivity extends AppCompatActivity {
         //是否有欄位為空
         if (askTitle.isEmpty() || askCont.isEmpty()){
             Toast.makeText(this, "標題或內容有缺漏，請再檢查一次", Toast.LENGTH_SHORT).show();
+            contain = true;
         }
         for (int i=0;i<a.size();i++) {
             //-1是沒有髒話
@@ -181,8 +183,9 @@ public class askActivity extends AppCompatActivity {
                 dataToSave.put(TITLE_KEY, askTitle);
                 dataToSave.put(CONTENT_KEY, askCont);
                 dataToSave.put(CATEGORY_KEY, askType);
-                dataToSave.put(TIME_KEY, askTime);
+                dataToSave.put(TIME_KEY, ServerValue.TIMESTAMP);
                 dataToSave.put(STAGE_KEY, stage);
+                dataToSave.put(FROM_KEY,userId);
                 dataToSave.put(INAPPRO_KEY, reported);
                 dataToSave.put(REPORT_KEY, inappro);
                 proRef.child(proid).setValue(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
