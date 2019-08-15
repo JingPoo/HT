@@ -8,11 +8,17 @@ import android.view.View;
 
 public class hisAsk extends AppCompatActivity {
     float x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+    String userId = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_his_ask);
+
+        Intent it = getIntent();
+        userId = it.getStringExtra("UserId");
+        //Toast.makeText(this, "Here is userId:"+userId, Toast.LENGTH_SHORT).show();
+        System.out.println("Here is userID(hisAsk):"+userId);
     }
 
     @Override
@@ -50,12 +56,13 @@ public class hisAsk extends AppCompatActivity {
     }
     public void gotomenu(View v) {
         Intent it = new Intent(this, menuActivity.class);
-
+        it.putExtra("UserId", userId);
         startActivity(it);
     }
 
     public void gotohisans(){
         Intent it = new Intent(this, hisAns.class );
+        it.putExtra("UserId", userId);
         startActivity(it);
     }
 

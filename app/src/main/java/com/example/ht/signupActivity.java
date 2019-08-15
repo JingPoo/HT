@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -83,9 +84,7 @@ public class signupActivity extends AppCompatActivity {
         //限制都有做到才跳到登入(待解決)
         // 密碼不一致，清空輸入欄2
         //跳出提示請使用者必填欄位
-        Intent it = new Intent(this, MainActivity.class);
 
-        startActivity(it);
 
 
         //是否接收問題(請假)
@@ -94,26 +93,35 @@ public class signupActivity extends AppCompatActivity {
         //被檢舉次數
         int reportedtime = 0;
 
-        //產生獨一無二 id_user
-        signupRef.child(userid);
+        if(userid.equals("") || username.equals("") || userphone.equals("") || useremail.equals("") || userpsw.equals("") || userpswcomfirm.equals("")){
+            Toast.makeText(this, "資料不完整，填妥後請再試一次", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            //產生獨一無二 id_user
+            signupRef.child(userid);
 
-        Map<String, Object> dataToSave = new HashMap<String, Object>();
-        dataToSave.put(NAME_KEY, username);
-        dataToSave.put(PHONE_KEY, userphone);
-        dataToSave.put(EMAIL_KEY, useremail);
-        dataToSave.put(PASSWORD_KEY, userpsw);
-        dataToSave.put(RECIEVEPRO_KEY, receivepro);
-        dataToSave.put(REPORTEDTIME_KEY, reportedtime);
-        signupRef.child(userid).setValue(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Log.d(TAG, "Document has been saved!");
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.w(TAG, "Document was not saved!", e);
-            }
-        });
+            Map<String, Object> dataToSave = new HashMap<String, Object>();
+            dataToSave.put(NAME_KEY, username);
+            dataToSave.put(PHONE_KEY, userphone);
+            dataToSave.put(EMAIL_KEY, useremail);
+            dataToSave.put(PASSWORD_KEY, userpsw);
+            dataToSave.put(RECIEVEPRO_KEY, receivepro);
+            dataToSave.put(REPORTEDTIME_KEY, reportedtime);
+            signupRef.child(userid).setValue(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Log.d(TAG, "Document has been saved!");
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.w(TAG, "Document was not saved!", e);
+                }
+            });
+
+            Intent it = new Intent(this, MainActivity.class);
+
+            startActivity(it);
+        }
     }
 }

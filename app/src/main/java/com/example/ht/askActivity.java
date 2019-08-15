@@ -36,6 +36,7 @@ public class askActivity extends AppCompatActivity {
     public static final String CATEGORY_KEY ="category_problem";
     public static final String TIME_KEY ="time_problem";
     public static final String STAGE_KEY ="stage";
+    public static final String ASKER_KEY ="asker";
     //public static final String PROID_KEY ="id_problem";
     public static final String REPORT_KEY ="been_reported_problem";
     public static final String INAPPRO_KEY ="inappropriate_content_problem";
@@ -46,6 +47,7 @@ public class askActivity extends AppCompatActivity {
     ImageButton backimageButton,menubutton;
     EditText questitle,quescontent;
     Spinner type;
+    String userId = "";
 
 
     @Override
@@ -61,6 +63,11 @@ public class askActivity extends AppCompatActivity {
         quescontent = (EditText)findViewById(R.id.quescontent);
         type = (Spinner)findViewById(R.id.type);
 
+        Intent it = getIntent();
+        userId = it.getStringExtra("UserId");
+        //Toast.makeText(this, "Here is userId:"+userId, Toast.LENGTH_SHORT).show();
+        System.out.println("Here is userID(askActivity):"+userId);
+
     }
 
     public void gotohome(View v) {
@@ -68,12 +75,12 @@ public class askActivity extends AppCompatActivity {
     }
     public void gotonotice(View v) {
         Intent it = new Intent(this, noticeActivity.class);
-
+        it.putExtra("UserId", userId);
         startActivity(it);
     }
     public void gotomenu(View v) {
         Intent it = new Intent(this, menuActivity.class);
-
+        it.putExtra("UserId", userId);
         startActivity(it);
     }
 
@@ -145,6 +152,7 @@ public class askActivity extends AppCompatActivity {
         dataToSave.put(CATEGORY_KEY,askType);
         dataToSave.put(TIME_KEY,askTime);
         dataToSave.put(STAGE_KEY,stage);
+        dataToSave.put(ASKER_KEY,userId);
         dataToSave.put(INAPPRO_KEY,reported);
         dataToSave.put(REPORT_KEY,inappro);
         proRef.child(proid).setValue(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {

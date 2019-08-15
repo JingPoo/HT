@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     //Button askbutton,ansbutton,noticebutton,menubutton;
 
     //float x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+    EditText signinuserText;
 
     private FirebaseAnalytics mFirebaseAnalytics;
     private DatabaseReference databaseReference;
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         ansbutton= (Button)findViewById(R.id.ansbutton);
         noticebutton = (Button)findViewById(R.id.noticebutton);
         menubutton = (Button)findViewById(R.id.menubutton);*/
+        signinuserText = (EditText)findViewById(R.id.signinuserText);
 
         // Obtain the FirebaseAnalytics instance.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
@@ -44,8 +47,10 @@ public class MainActivity extends AppCompatActivity {
 
     //去主頁的功能
     public void gotoMainPage(View v) {
+        String userId = signinuserText.getText().toString();
+        //String userId = "123";
         Intent it = new Intent(this, mainPageActivity.class);
-
+        it.putExtra("UserId", userId);
         startActivity(it);
     }
 
@@ -56,53 +61,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(it);
     }
 
-    /*@Override
-    public boolean onTouchEvent(MotionEvent event){
-        if(event.getAction() == MotionEvent.ACTION_DOWN){
-            //手指按下
-            x1 = event.getX();
-            x2 = event.getY();
-        }
-
-        if(event.getAction() == MotionEvent.ACTION_UP){
-            //手指離開
-            x2 = event.getX();
-            y2 = event.getY();
-
-            if(x1 - x2 > 50){  //左滑
-                gotohisask();
-            }
-
-        }
-        return true;
-    }
-
-    public void gotoask(View v) {
-        Intent it = new Intent(this, askActivity.class);
-
-        startActivity(it);
-    }
-    public void gotoans(View v) {
-        Intent it = new Intent(this, ansActivity.class);
-
-        startActivity(it);
-    }
-    public void gotonotice(View v) {
-        Intent it = new Intent(this, noticeActivity.class);
-
-        startActivity(it);
-    }
-
-
-    public void gotohisask(){
-        Intent it = new Intent(this, hisAsk.class );
-        startActivity(it);
-    }
-
-    public void gotomenu(View v) {
-        Intent it = new Intent(this, menuActivity.class);
-
-
-        startActivity(it);
-    }*/
 }
