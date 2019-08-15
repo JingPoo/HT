@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -15,7 +16,9 @@ public class mainPageActivity extends AppCompatActivity {
 
     TextView hottea;
     ImageButton askbutton,ansbutton,noticebutton,menubutton;
+
     Button teach;
+
     float x1 = 0, x2 = 0, y1 = 0, y2 = 0;
 
     @Override
@@ -87,15 +90,14 @@ public class mainPageActivity extends AppCompatActivity {
         startActivity(it);
     }
 
+
     public void gotohisask(){
         Intent it = new Intent(this, hisAsk.class );
         startActivity(it);
     }
 
-    public void gotomenu(View v) {
+    public void gotomenu() {
         Intent it = new Intent(this, menuActivity.class);
-
-
         startActivity(it);
     }
 }
