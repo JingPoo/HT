@@ -12,8 +12,7 @@ import android.widget.TextView;
 
 public class ansActivity extends AppCompatActivity {
     TextView hottea,questitle,quescontent;
-    Button noticebutton,menubutton;
-    ImageButton backimagebutton,sendimagebutton;
+    ImageButton backimagebutton,sendimagebutton,menubutton;
     LinearLayout linearLayout;
     EditText anstext;
 
@@ -25,12 +24,11 @@ public class ansActivity extends AppCompatActivity {
         hottea = (TextView)findViewById(R.id.hottea);
         questitle = (TextView)findViewById(R.id.questitle);
         quescontent = (TextView)findViewById(R.id.quescontent);
-        noticebutton = (Button)findViewById(R.id.noticebutton);
-        menubutton = (Button)findViewById(R.id.menubutton);
+        menubutton =  findViewById(R.id.menubutton);
         backimagebutton = (ImageButton)findViewById(R.id.backimageButton);
         sendimagebutton = (ImageButton)findViewById(R.id.sendimageButton);
         linearLayout = (LinearLayout)findViewById(R.id.linearLayout);
-        anstext = (EditText)findViewById(R.id.anstext);
+        anstext = findViewById(R.id.anstext);
 
         //set Title
         String title = "Title";

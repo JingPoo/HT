@@ -18,8 +18,8 @@ import java.lang.String;
 
 public class askActivity extends AppCompatActivity {
     TextView hottea;
-    Button noticebutton,menubutton,sendbutton;
-    ImageButton backimageButton;
+    Button noticebutton,sendbutton;
+    ImageButton backimageButton,menubutton;
     EditText questitle,quescontent;
     Spinner type;
 
@@ -30,8 +30,7 @@ public class askActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ask);
 
         hottea = (TextView)findViewById(R.id.hottea);
-        noticebutton = (Button)findViewById(R.id.noticebutton);
-        menubutton = (Button)findViewById(R.id.menubutton);
+        menubutton = findViewById(R.id.menubutton);
         sendbutton = (Button)findViewById(R.id.sendbutton);
         backimageButton = (ImageButton) findViewById(R.id.backimageButton);
         questitle = (EditText)findViewById(R.id.questitle);

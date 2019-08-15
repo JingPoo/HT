@@ -8,6 +8,7 @@
     tools:context=".signupActivity">
 
     //註冊標題
+
     <TextView
         android:id="@+id/signuptextView"
         android:layout_width="126dp"
@@ -20,15 +21,15 @@
         android:textColor="#5C832F"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     //姓名欄位
+
     <EditText
         android:id="@+id/nameeditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="308dp"
+        android:layout_height="25dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="8dp"
@@ -42,12 +43,13 @@
         app:layout_constraintTop_toBottomOf="@+id/signuptextView" />
 
     //學校電子郵件欄位
+
     <EditText
         android:id="@+id/emaileditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="308dp"
+        android:layout_height="25dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="#B4FFFFFF"
         android:ems="10"
@@ -58,12 +60,13 @@
         app:layout_constraintTop_toBottomOf="@+id/nameeditText" />
 
     //手機號碼欄位
+
     <EditText
         android:id="@+id/phoneeditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="308dp"
+        android:layout_height="25dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="#B4FFFFFF"
         android:ems="10"
@@ -75,12 +78,13 @@
         app:layout_constraintTop_toBottomOf="@+id/emaileditText" />
 
     //設定帳號欄位
+
     <EditText
         android:id="@+id/usereditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="308dp"
+        android:layout_height="25dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="#B4FFFFFF"
         android:ems="10"
@@ -92,12 +96,13 @@
         app:layout_constraintTop_toBottomOf="@+id/phoneeditText" />
 
     //設定密碼欄位
+
     <EditText
         android:id="@+id/psweditText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="308dp"
+        android:layout_height="25dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="#B4FFFFFF"
         android:ems="10"
@@ -112,10 +117,10 @@
 
     <EditText
         android:id="@+id/psweditText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="308dp"
+        android:layout_height="25dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="#B4FFFFFF"
         android:ems="10"
@@ -140,28 +145,36 @@
         app:layout_constraintTop_toBottomOf="@+id/enterButton" />
 
     //前往登入頁按鈕
+
     <Button
         android:id="@+id/signinbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:background="#00FFFFFF"
         android:onClick="gotoSignIn"
         android:text="登入"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/notsignedupeditText"
         app:layout_constraintTop_toBottomOf="@+id/enterButton" />
 
     //確認資料後去登入頁登入
+
     <ImageButton
         android:id="@+id/enterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="260dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:background="#00FFFFFF"
         android:onClick="gotoSignIn"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline22"
         app:layout_constraintTop_toBottomOf="@+id/psweditText2"
         app:srcCompat="@drawable/rightarrow" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.87" />
 </android.support.constraint.ConstraintLayout>

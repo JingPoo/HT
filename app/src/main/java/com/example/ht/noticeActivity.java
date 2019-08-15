@@ -24,8 +24,7 @@ public class noticeActivity extends AppCompatActivity {
         notice1 = (TextView) findViewById(R.id.notice1);
         notice2 = (TextView) findViewById(R.id.notice2);
         notice3 = (TextView) findViewById(R.id.notice3);
-        noticebutton = (Button)findViewById(R.id.noticebutton);
-        menubutton = (Button)findViewById(R.id.menubutton);
+        //menubutton = (Button)findViewById(R.id.menubutton);
         backimagebutton = (ImageButton)findViewById(R.id.backimageButton);
 
     }
