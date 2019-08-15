@@ -9,12 +9,13 @@
     tools:context=".MainActivity">
 
     //登入文字標籤
+
     <TextView
         android:id="@+id/hottea"
         android:layout_width="113dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="8dp"
         android:text="登入"
         android:textAlignment="center"
@@ -30,15 +31,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.87" />
 
     //輸入帳號text box
+
     <EditText
         android:id="@+id/signinuserText"
         android:layout_width="308dp"
-        android:layout_height="32dp"
+        android:layout_height="25dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="94dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="8dp"
         android:background="#B4FFFFFF"
         android:ems="15"
@@ -47,67 +49,81 @@
         android:inputType="textMultiLine"
         android:password="false"
         android:textAlignment="textStart"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hottea" />
 
     //輸入密碼text box
+
     <EditText
         android:id="@+id/signinpassText"
         android:layout_width="308dp"
-        android:layout_height="32dp"
+        android:layout_height="25dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="#B4FFFFFF"
         android:ems="10"
         android:hint="密碼"
         android:inputType="textPassword"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/signinuserText"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintTop_toBottomOf="@+id/signinuserText" />
 
     //前往註冊頁面的按鈕
+
     <Button
         android:id="@+id/signupbutton"
         android:layout_width="wrap_content"
         android:layout_height="38dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="104dp"
         android:background="#00FFFFFF"
-        android:text="註冊"
         android:onClick="gotoSignUp"
+        android:text="註冊"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/gomainpageButton" />
 
     //文字
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="164dp"
-        android:text="還沒有帳號嗎？"
+        android:layout_marginStart="96dp"
         android:onClick="gotoSignUp"
+        android:text="還沒有帳號嗎？"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gomainpageButton" />
+        app:layout_constraintTop_toTopOf="@+id/guideline13" />
 
     //帳密輸入正確後前往主頁的按鈕
+
     <ImageButton
         android:id="@+id/gomainpageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="316dp"
         android:layout_marginTop="16dp"
         android:background="#00FFFFFF"
         android:onClick="gotoMainPage"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/signinpassText"
         app:srcCompat="@drawable/rightarrow" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="424dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
 </android.support.constraint.ConstraintLayout>

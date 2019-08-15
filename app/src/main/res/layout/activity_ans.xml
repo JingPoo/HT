@@ -4,83 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#607CB342"
+    android:background="#EDF1D5"
     tools:context=".ansActivity">
 
-    <Button
-        android:id="@+id/menubutton"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:onClick="gotomenu"
-        android:text="選單"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    //Hot Tea標籤
 
     <TextView
-        android:id="@+id/hottea"
-        android:layout_width="113dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="32dp"
+        android:id="@+id/textHotTea"
+        android:layout_width="171dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Hot Tea"
+        android:textAlignment="center"
         android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/noticebutton"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:onClick="gotonotice"
-        android:text="通知"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.953"
-        app:layout_constraintStart_toEndOf="@+id/hottea"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024" />
+
+    <ImageButton
+        android:id="@+id/inboxButton"
+        android:layout_width="69dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="120dp"
+        android:background="#00FFFFFF"
+        android:onClick="gotonotice"
+        app:layout_constraintBottom_toTopOf="@+id/mountainView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textHotTea"
+        app:srcCompat="@drawable/inbox_small" />
+
+    <ImageButton
+        android:id="@+id/menubutton"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="128dp"
+        android:background="#00FFFFFF"
+        android:onClick="gotomenu"
+        app:layout_constraintBottom_toTopOf="@+id/mountainView"
+        app:layout_constraintEnd_toStartOf="@+id/textHotTea"
+        app:srcCompat="@drawable/menu" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.46" />
+        app:layout_constraintGuide_percent="0.5" />
 
     <ImageButton
         android:id="@+id/backimageButton"
         android:layout_width="47dp"
         android:layout_height="42dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:background="#00FFFFFF"
         android:onClick="gotohome"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menubutton"
+        app:layout_constraintTop_toBottomOf="@+id/textHotTea"
         app:srcCompat="?attr/actionModeCloseDrawable" />
 
     <TextView
         android:id="@+id/questitle"
-        android:layout_width="184dp"
-        android:layout_height="33dp"
+        android:layout_width="350dp"
+        android:layout_height="29dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:background="#B4FFFFFF"
         android:text="問題"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/backimageButton"
-        app:layout_constraintTop_toBottomOf="@+id/noticebutton" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backimageButton" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline6"
@@ -100,29 +103,32 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="418dp"
+        android:layout_width="0dp"
         android:layout_height="96dp"
-        android:layout_marginTop="16dp"
-        android:background="#A13C3636"
+
+        android:background="#DED8C8"
+        android:gravity="end"
+
         android:orientation="horizontal"
         android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quescontent">
+        app:layout_constraintStart_toStartOf="parent">
 
         <EditText
             android:id="@+id/anstext"
-            android:layout_width="306dp"
-            android:layout_height="50dp"
-            android:background="#B4FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FDFCFC"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
 
         <ImageButton
             android:id="@+id/sendimageButton"
             android:layout_width="72dp"
             android:layout_height="54dp"
-            android:background="#717465"
+            android:background="#00717465"
             android:onClick="returnAns"
             app:srcCompat="@android:drawable/ic_media_play" />
 
@@ -130,16 +136,29 @@
 
     <TextView
         android:id="@+id/quescontent"
-        android:layout_width="251dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="48dp"
+
+        android:layout_width="350dp"
+        android:layout_height="280dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="120dp"
+        android:layout_marginEnd="8dp"
+
         android:background="#B4FFFFFF"
         android:text="問題內容"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backimageButton" />
+        app:layout_constraintTop_toBottomOf="@+id/questitle" />
+
+    <Button
+        android:id="@+id/reject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:background="#00FFFFFF"
+        android:text="拒絕回答此提問"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textHotTea" />
 
 </android.support.constraint.ConstraintLayout>
