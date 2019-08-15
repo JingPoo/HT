@@ -43,6 +43,7 @@ public class askActivity extends AppCompatActivity {
     public static final String CATEGORY_KEY ="category_problem";
     public static final String TIME_KEY ="time_problem";
     public static final String STAGE_KEY ="stage";
+    public static final String ASKER_KEY ="asker";
     //public static final String PROID_KEY ="id_problem";
     public static final String REPORT_KEY ="been_reported_problem";
     public static final String INAPPRO_KEY ="inappropriate_content_problem";
@@ -53,8 +54,13 @@ public class askActivity extends AppCompatActivity {
     ImageButton backimageButton,menubutton;
     EditText questitle,quescontent;
     Spinner type;
+
+    String userId = "";
+
+
     //髒話列表
     ArrayList <String> a = new ArrayList(Arrays.asList("幹","靠","機掰","你娘","屎","乳頭","雞雞","雞掰","雞巴","雞八","王八","哭邀","哭腰","怪胎","腦殘"));
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +75,14 @@ public class askActivity extends AppCompatActivity {
         quescontent = (EditText)findViewById(R.id.quescontent);
         type = (Spinner)findViewById(R.id.type);
 
+
+        Intent it = getIntent();
+        userId = it.getStringExtra("UserId");
+        //Toast.makeText(this, "Here is userId:"+userId, Toast.LENGTH_SHORT).show();
+        System.out.println("Here is userID(askActivity):"+userId);
+
     System.out.println("髒話列表:"+a);
+
 
     }
 
@@ -78,12 +91,12 @@ public class askActivity extends AppCompatActivity {
     }
     public void gotonotice(View v) {
         Intent it = new Intent(this, noticeActivity.class);
-
+        it.putExtra("UserId", userId);
         startActivity(it);
     }
     public void gotomenu(View v) {
         Intent it = new Intent(this, menuActivity.class);
-
+        it.putExtra("UserId", userId);
         startActivity(it);
     }
 
@@ -147,12 +160,6 @@ public class askActivity extends AppCompatActivity {
         System.out.println(askTime);
         System.out.println(stage);
 
-      /*  String s = dataSnapshot.child(proid).getValue(String.class);
-        for (int i=0;i<a.size();i++){
-            if (s.indexOf(a.get(i)) > 0){
-                System.out.println("內容有髒話");
-            }
-*/
         //是否有含髒話
         boolean contain = false;
         //是否有欄位為空

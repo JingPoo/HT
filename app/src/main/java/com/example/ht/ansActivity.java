@@ -45,6 +45,7 @@ public class ansActivity extends AppCompatActivity {
     public static final String REPORT_KEY ="been_reported_reply";
     public static final String INAPPRO_KEY ="inappropriate_content_reply";
     public static final String TAG ="ReplyingQuestion";
+    String userId = "";
 
 
 
@@ -79,6 +80,12 @@ public class ansActivity extends AppCompatActivity {
         sendimagebutton = (ImageButton)findViewById(R.id.sendimageButton);
         linearLayout = (LinearLayout)findViewById(R.id.linearLayout);
         anstext = findViewById(R.id.anstext);
+
+        Intent it = getIntent();
+        userId = it.getStringExtra("UserId");
+        //Toast.makeText(this, "Here is userId:"+userId, Toast.LENGTH_SHORT).show();
+        System.out.println("Here is userID(ansActivity):"+userId);
+
 
         rootRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -132,12 +139,12 @@ public class ansActivity extends AppCompatActivity {
     }
     public void gotonotice(View v) {
         Intent it = new Intent(this, noticeActivity.class);
-
+        it.putExtra("UserId", userId);
         startActivity(it);
     }
     public void gotomenu(View v) {
         Intent it = new Intent(this, menuActivity.class);
-
+        it.putExtra("UserId", userId);
         startActivity(it);
     }
 

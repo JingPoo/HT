@@ -12,6 +12,7 @@ public class menuActivity extends AppCompatActivity {
      ImageButton closeimagebutton;
      Button teahousebutton,dictbutton,settingbutton;
      Switch leaveswitch;
+     String userId = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,11 @@ public class menuActivity extends AppCompatActivity {
         dictbutton = (Button)findViewById(R.id.dictbutton);
         settingbutton = (Button)findViewById(R.id.settingbutton);
         leaveswitch = (Switch)findViewById(R.id.leaveswitch);
+
+        Intent it = getIntent();
+        userId = it.getStringExtra("UserId");
+        //Toast.makeText(this, "Here is userId:"+userId, Toast.LENGTH_SHORT).show();
+        System.out.println("Here is userID(menuActivity):"+userId);
     }
 
     public void gototearoom(View v) {
