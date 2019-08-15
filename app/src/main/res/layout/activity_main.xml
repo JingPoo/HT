@@ -45,7 +45,7 @@
         android:background="#B4FFFFFF"
         android:ems="15"
         android:gravity="start|top"
-        android:hint="帳號"
+        android:hint="Email"
         android:inputType="textMultiLine"
         android:password="false"
         android:textAlignment="textStart"
