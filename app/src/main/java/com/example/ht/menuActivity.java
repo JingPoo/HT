@@ -1,5 +1,6 @@
 package com.example.ht;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,14 @@ public class menuActivity extends AppCompatActivity {
         leaveswitch = (Switch)findViewById(R.id.leaveswitch);
     }
 
+    public void gototearoom(View v) {
+        Intent it = new Intent(this, TeaRoomActivity.class );
+        startActivity(it);
+    }
+    public void gotohelp(View v) {
+        Intent it = new Intent(this, helpGPSActivity.class );
+        startActivity(it);
+    }
     public void gotohome(View v) {
         finish();
     }

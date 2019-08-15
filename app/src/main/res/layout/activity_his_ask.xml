@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#607CB342"
+    android:background="#EDF1D5"
     tools:context=".hisAsk">
 
     <TextView
@@ -12,14 +12,12 @@
         android:layout_width="318dp"
         android:layout_height="52dp"
         android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
         android:background="#B4FFFFFF"
         android:text="提出的疑問\n預覽的字..."
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hottea" />
 
@@ -28,55 +26,58 @@
         android:layout_width="318dp"
         android:layout_height="52dp"
         android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="376dp"
         android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
         android:background="#B4FFFFFF"
         android:text="提出的疑問\n預覽的字..."
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/notice" />
 
-    <Button
-        android:id="@+id/noticebutton"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:onClick="gotonotice"
-        android:text="通知"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.953"
-        app:layout_constraintStart_toEndOf="@+id/hottea"
-        app:layout_constraintTop_toTopOf="parent" />
+    //Hot Tea標籤
 
     <TextView
-        android:id="@+id/hottea"
-        android:layout_width="113dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="32dp"
+        android:id="@+id/textHotTea"
+        android:layout_width="171dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Hot Tea"
+        android:textAlignment="center"
         android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024" />
 
-    <Button
+    <ImageButton
+        android:id="@+id/inboxButton"
+        android:layout_width="69dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="120dp"
+        android:background="#00FFFFFF"
+        android:onClick="gotonotice"
+        app:layout_constraintBottom_toTopOf="@+id/mountainView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textHotTea"
+        app:srcCompat="@drawable/inbox_small" />
+
+    <ImageButton
         android:id="@+id/menubutton"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="128dp"
+        android:background="#00FFFFFF"
         android:onClick="gotomenu"
-        android:text="選單"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/mountainView"
+        app:layout_constraintEnd_toStartOf="@+id/textHotTea"
+        app:srcCompat="@drawable/menu" />
 
 </android.support.constraint.ConstraintLayout>

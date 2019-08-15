@@ -7,4 +7,24 @@
         <item>未來</item>
         <item>生活</item>
     </string-array>
+
+    <string name="bai">白毫烏龍茶</string>
+    <string name="baitext">因其茶芽白豪而得名，就像是你的回覆一樣，溫暖而顯著。獨特的熟果香和蜂蜜香氣，如同你的回覆一樣，清新而成熟。往往帶給人淡淡的溫暖，悠長而富有意涵。</string>
+    <string name="green">抹茶</string>
+    <string name="greentext">將綠茶輾磨成微粉狀，使其味道幾乎沒有苦澀味，回味甘甜。就跟你回覆予人的感覺一樣，溫順而甘甜，在需要的時候給人一絲清甜。</string>
+    <string name="asa">阿薩姆紅茶</string>
+    <string name="asatext">以清特鮮亮而出名，香氣撲鼻，滋味甘醇甜美，有著沉穩內斂的格調。是不是就像你的幫助一樣，穩重而安定人心呢。</string>
+    <string name="fe">鐵觀音</string>
+    <string name="fetext">獨特的香氣令人心儀神醉，甚至有「七泡有餘香」之譽!一杯鐵觀音，芬芳撲鼻，滿室生香。好似你的回覆一樣，效果顯著而持久，一眼可見。</string>
+    <string name="poo">普洱茶</string>
+    <string name="pootext">其工藝「渥堆」工藝向來被視為不傳之秘，因此讓初次接觸的人買到劣質品，所以常說買普洱茶要找信用良好的人。</string>
+    <string name="four">四季春茶</string>
+    <string name="fourtext">開花數多，生命力強健，幾乎不休眠，採摘期極長且收成量極高是他的特色。跟你的回覆量一樣呢!熱心的你帶給別人的每一句話，都深入人心而不冗餘!</string>
+    <string name="gold">金萱茶</string>
+    <string name="goldtext">具有一股濃濃的天然「奶香」，香氣獨特、湯色金黃，甚至偶爾會呈現桂花香!這是試驗出來的新品種茶業。你的回覆也是那麼獨特卻又別具心裁呢!看似「跳Tone」卻很成功呢!</string>
+    <string name="fu">佛手茶</string>
+    <string name="futext">獨特的茶種，帶有一股淡淡的香櫞果香，清新好入喉，辨識度很高!喝過的人往往對他印象深刻。或許你的勤勞幫助到一樣的人，一眼就被認出來了呢!</string>
+    <string name="milk">奶茶</string>
+    <string name="milktext">是融入普羅大眾日常生活中的飲品，不論是中西方都隨處可見！或許你的答覆沒有一眼讓人感到獨特，但又恰到好處，是大家都可以接受的呢！</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
