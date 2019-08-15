@@ -96,7 +96,7 @@ public class mainPageActivity extends AppCompatActivity {
         startActivity(it);
     }
 
-    public void gotomenu() {
+    public void gotomenu(View v) {
         Intent it = new Intent(this, menuActivity.class);
         startActivity(it);
     }

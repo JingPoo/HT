@@ -11,14 +11,21 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.sql.Array;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.lang.String;
@@ -46,7 +53,8 @@ public class askActivity extends AppCompatActivity {
     ImageButton backimageButton,menubutton;
     EditText questitle,quescontent;
     Spinner type;
-
+    //髒話列表
+    ArrayList <String> a = new ArrayList(Arrays.asList("幹","靠","機掰","你娘","屎","乳頭","雞雞","雞掰","雞巴","雞八","王八","哭邀","哭腰","怪胎","腦殘"));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +68,8 @@ public class askActivity extends AppCompatActivity {
         questitle = (EditText)findViewById(R.id.questitle);
         quescontent = (EditText)findViewById(R.id.quescontent);
         type = (Spinner)findViewById(R.id.type);
+
+    System.out.println("髒話列表:"+a);
 
     }
 
@@ -83,7 +93,7 @@ public class askActivity extends AppCompatActivity {
         proRef.push();
 
         // ProblemId (Function)
-        String proid= proRef.push().getKey();
+        final String proid= proRef.push().getKey();
 
 
 
@@ -137,34 +147,61 @@ public class askActivity extends AppCompatActivity {
         System.out.println(askTime);
         System.out.println(stage);
 
-        //寫入db
-        if (askTitle.isEmpty() || askCont.isEmpty()) { return; }
-        Map<String, Object> dataToSave = new HashMap<String, Object>();
-        dataToSave.put(TITLE_KEY,askTitle);
-        dataToSave.put(CONTENT_KEY,askCont);
-        dataToSave.put(CATEGORY_KEY,askType);
-        dataToSave.put(TIME_KEY,askTime);
-        dataToSave.put(STAGE_KEY,stage);
-        dataToSave.put(INAPPRO_KEY,reported);
-        dataToSave.put(REPORT_KEY,inappro);
-        proRef.child(proid).setValue(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Log.d(TAG,"Document has been saved!");
+      /*  String s = dataSnapshot.child(proid).getValue(String.class);
+        for (int i=0;i<a.size();i++){
+            if (s.indexOf(a.get(i)) > 0){
+                System.out.println("內容有髒話");
             }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.w(TAG,"Document was not saved!",e);
+*/
+        //是否有含髒話
+        boolean contain = false;
+        //是否有欄位為空
+        if (askTitle.isEmpty() || askCont.isEmpty()){
+            Toast.makeText(this, "標題或內容有缺漏，請再檢查一次", Toast.LENGTH_SHORT).show();
+        }
+        for (int i=0;i<a.size();i++) {
+            //-1是沒有髒話
+            if (askTitle.indexOf(a.get(i)) != -1 || askCont.indexOf(a.get(i)) != -1) {
+                Toast.makeText(this, "標題或內容有髒話，請再檢查一次", Toast.LENGTH_SHORT).show();
+                contain = true;
+                System.out.println("Here is the bad:"+askTitle+"+"+askCont);
             }
-        });
+        }
 
-        questitle.setText("");
-        quescontent.setText("");
-        type.setSelection(0);
-        //sendbutton.setText("已送出! 靜待回覆");
+        //都符合，才寫入db
+            if(contain == false) {
+                Map<String, Object> dataToSave = new HashMap<String, Object>();
+                dataToSave.put(TITLE_KEY, askTitle);
+                dataToSave.put(CONTENT_KEY, askCont);
+                dataToSave.put(CATEGORY_KEY, askType);
+                dataToSave.put(TIME_KEY, askTime);
+                dataToSave.put(STAGE_KEY, stage);
+                dataToSave.put(INAPPRO_KEY, reported);
+                dataToSave.put(REPORT_KEY, inappro);
+                proRef.child(proid).setValue(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "Document has been saved!");
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Document was not saved!", e);
+                    }
+                });
 
-        //看能不能加個彈跳視窗說已送出
+                questitle.setText("");
+                quescontent.setText("");
+                type.setSelection(0);
+                //sendbutton.setText("已送出! 靜待回覆");
+
+                //看能不能加個彈跳視窗說已送出
+            }
+
+        }
+
+
+
+
+
     }
-
-}

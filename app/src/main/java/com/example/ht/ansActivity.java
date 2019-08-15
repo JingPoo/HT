@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -21,6 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,7 +55,8 @@ public class ansActivity extends AppCompatActivity {
 
     LinearLayout linearLayout;
     EditText anstext;
-
+    //髒話列表
+    ArrayList<String> a = new ArrayList(Arrays.asList("幹","靠","機掰","你娘","屎","乳頭","雞雞","雞掰","雞巴","雞八","王八","哭邀","哭腰","怪胎","腦殘"));
 
     //String[] name = new String[50];
     int ranPick = 0;
@@ -156,35 +160,55 @@ public class ansActivity extends AppCompatActivity {
         //隨機產生id_reply
         repRef.push();
 
+
         String repid = repRef.push().getKey();
 
-        String ans = anstext.getText().toString();
-        anstext.setText("");
+        //ansText
+        String  ans = "";
+        ans = anstext.getText().toString();
 
-        if (ans.isEmpty() ) { return; }
-        Map<String, Object> dataToSave = new HashMap<String, Object>();
 
-        dataToSave.put(CONTENT_KEY,ans);
-        dataToSave.put(PROID_KEY,proid);
-        dataToSave.put(TIME_KEY,repTime);
-        dataToSave.put(REPORT_KEY,reported);
-        dataToSave.put(INAPPRO_KEY,inappro);
-        dataToSave.put(TEAID_KEY,teaid);
-
-        repRef.child(repid).setValue(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Log.d(TAG,"Document has been saved!");
+        //是否有含髒話
+        boolean contain = false;
+        //是否有欄位為空
+        if (ans.isEmpty() ){
+            Toast.makeText(this, "標題或內容有缺漏，請再檢查一次", Toast.LENGTH_SHORT).show();
+        }
+        for (int i=0;i<a.size();i++) {
+            //-1是沒有髒話
+            if (ans.indexOf(a.get(i)) != -1 ) {
+                Toast.makeText(this, "標題或內容有髒話，請再檢查一次", Toast.LENGTH_SHORT).show();
+                contain = true;
+                System.out.println("Here is the bad:"+ans);
             }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.w(TAG,"Document was not saved!",e);
-            }
-        });
+        }
 
-        //testing
-        System.out.println(ans);
+        //都符合，才寫入db
+        if(contain == false) {
+            Map<String, Object> dataToSave = new HashMap<String, Object>();
+
+            dataToSave.put(CONTENT_KEY, ans);
+           // dataToSave.put(PROID_KEY, proid);
+            dataToSave.put(TIME_KEY, repTime);
+            dataToSave.put(REPORT_KEY, reported);
+            dataToSave.put(INAPPRO_KEY, inappro);
+            dataToSave.put(TEAID_KEY, teaid);
+
+            repRef.child(repid).setValue(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Log.d(TAG, "Document has been saved!");
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.w(TAG, "Document was not saved!", e);
+                }
+            });
+            anstext.setText("");
+            //testing
+            System.out.println(ans);
+        }
 
 
     }
