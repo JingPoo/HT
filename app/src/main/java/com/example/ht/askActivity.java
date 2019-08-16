@@ -112,11 +112,11 @@ public class askActivity extends AppCompatActivity {
         finish();
     }
 
-    public void gotonotice(View v) {
+    /*public void gotonotice(View v) {
         Intent it = new Intent(this, noticeActivity.class);
         it.putExtra("UserId", userId);
         startActivity(it);
-    }
+    }*/
 
     public void gotomenu(View v) {
         Intent it = new Intent(this, menuActivity.class);

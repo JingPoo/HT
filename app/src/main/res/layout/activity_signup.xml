@@ -53,7 +53,7 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/shape_rectangle2"
         android:ems="10"
-        android:hint="學校電子郵件"
+        android:hint="電子郵件"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

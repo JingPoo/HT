@@ -101,7 +101,7 @@ public class signupActivity extends AppCompatActivity {
                  final String nameeditText = nameeditTextEdit.getText().toString();
                  final String phoneeditText = phoneeditTextEdit.getText().toString();
                  //是否接收問題(請假)
-                 final Boolean receivepro = true;
+                 final String receivepro = "true";
                  //被檢舉次數
                  final int reportedtime = 0;
 

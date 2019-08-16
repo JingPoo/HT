@@ -98,7 +98,7 @@ public class ansActivity extends AppCompatActivity {
                         .setPositiveButton("關閉", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-
+                                sendgotohome();
                             }
                         }).create()
                         .show();
@@ -174,16 +174,18 @@ public class ansActivity extends AppCompatActivity {
     }
 
     public void gotohome(View v) {
-
+        //Intent it = new Intent(this, mainPageActivity.class );
+        //it.putExtra("UserId", userId);
+        //startActivity(it);
         finish();
     }
     public void sendgotohome(){finish();}
-    public void gotonotice(View v) {
+    /*public void gotonotice(View v) {
         Intent it = new Intent(this, noticeActivity.class);
         it.putExtra("UserId", userId);
 
         startActivity(it);
-    }
+    }*/
 
     public void gotomenu(View v) {
         Intent it = new Intent(this, menuActivity.class);

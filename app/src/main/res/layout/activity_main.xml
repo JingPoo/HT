@@ -47,7 +47,7 @@
 
 
         android:gravity="start|top"
-        android:hint="Email"
+        android:hint="電子郵件"
 
         android:inputType="textMultiLine"
         android:password="false"

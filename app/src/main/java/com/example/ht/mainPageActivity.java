@@ -124,11 +124,11 @@ public class mainPageActivity extends AppCompatActivity {
     }
 
     //前往通知頁的功能
-    public void gotonotice(View v) {
+    /*public void gotonotice(View v) {
         Intent it = new Intent(this, noticeActivity.class);
         it.putExtra("UserId", userId);
         startActivity(it);
-    }
+    }*/
 
 
 
