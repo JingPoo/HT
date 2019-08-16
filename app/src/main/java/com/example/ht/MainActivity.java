@@ -86,9 +86,11 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
+                                    String userId = signinuserTextEdit.getText().toString().replace('.','a');
                                     Toast.makeText(MainActivity.this, "登入成功", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent();
                                     intent.setClass(MainActivity.this, mainPageActivity.class);
+                                    intent.putExtra("UserId", userId);
                                     startActivity(intent);
                                     finish();
                                 } else {

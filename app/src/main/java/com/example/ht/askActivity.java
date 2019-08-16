@@ -63,8 +63,8 @@ public class askActivity extends AppCompatActivity {
     String userId = "";
 
 
-    //髒話列表(要更新兩邊都要更新)
-    ArrayList <String> a = new ArrayList(Arrays.asList("幹","靠","機掰","你娘","屎","乳頭","雞雞","雞掰","雞巴","雞八","王八","哭邀","哭腰","怪胎","腦殘","白癡","北七","媽的"));
+    //髒話列表(要更新兩邊都要更新)   ----->未來用Function做同步
+    ArrayList <String> a = new ArrayList(Arrays.asList("幹","靠","機掰","你娘","屎","乳頭","雞雞","雞掰","雞巴","雞八","王八","哭邀","哭腰","怪胎","腦殘","白癡","北七","媽的","低能","智障","屁眼","陰道","陰莖","去死","腦殘","喜憨"));
 
 
     @Override
