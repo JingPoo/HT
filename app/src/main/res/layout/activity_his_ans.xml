@@ -7,7 +7,11 @@
     android:background="#EDF1D5"
     tools:context=".hisAns">
 
+
+    //Hot Tea標籤
+
     <TextView
+
         android:id="@+id/textHotTea"
         android:layout_width="171dp"
         android:layout_height="59dp"
@@ -35,6 +39,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/menu" />
 
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -44,4 +49,13 @@
         android:text="歷史回答"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menubutton" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textHotTea" />
+
 </android.support.constraint.ConstraintLayout>

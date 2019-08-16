@@ -6,8 +6,40 @@
     android:layout_height="match_parent"
     android:background="#EDF1D5"
     tools:context=".hisAsk">
+<!--
+    <TextView
+
+        android:id="@+id/notice"
+        android:layout_width="318dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="48dp"
+        android:background="#B4FFFFFF"
+        android:text="提出的疑問\n預覽的字..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hottea" />
 
     <TextView
+        android:id="@+id/notice1"
+        android:layout_width="318dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="376dp"
+        android:layout_marginEnd="48dp"
+        android:background="#B4FFFFFF"
+        android:text="提出的疑問\n預覽的字..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notice" />
+-->
+    //Hot Tea標籤
+
+    <TextView
+
         android:id="@+id/textHotTea"
         android:layout_width="171dp"
         android:layout_height="59dp"
@@ -35,6 +67,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/menu" />
 
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -44,5 +77,14 @@
         android:text="歷史發問"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menubutton" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textHotTea" />
+
 
 </android.support.constraint.ConstraintLayout>

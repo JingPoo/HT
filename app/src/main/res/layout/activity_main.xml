@@ -44,8 +44,11 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/shape_rectangle2"
         android:ems="15"
-        android:gravity="start"
-        android:hint="帳號"
+
+
+        android:gravity="start|top"
+        android:hint="Email"
+
         android:inputType="textMultiLine"
         android:password="false"
         android:textAlignment="textStart"
@@ -110,7 +113,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="#00FFFFFF"
-        android:onClick="gotoMainPage"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/signinpassText"
         app:srcCompat="@drawable/rightarrow" />

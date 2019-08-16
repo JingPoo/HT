@@ -2,20 +2,37 @@ package com.example.ht;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class mainPageActivity extends AppCompatActivity {
 
+    private DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("user");
+
     TextView hottea;
+
     ImageButton askbutton,ansbutton,menubutton;
+
+
+    String userId = "";
+
     Button teach;
+
     float x1 = 0, x2 = 0, y1 = 0, y2 = 0;
 
     @Override
@@ -30,6 +47,11 @@ public class mainPageActivity extends AppCompatActivity {
         teach = findViewById(R.id.teachButton);
         menubutton = (ImageButton)findViewById(R.id.menubutton);
 
+        Intent it = getIntent();
+        userId = it.getStringExtra("UserId");
+        //Toast.makeText(this, "Here is userId:"+userId, Toast.LENGTH_SHORT).show();
+        System.out.println("Here is userID(MainPage):"+userId);
+
         //教學彈出視窗:進入最近回答
         teach.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +64,28 @@ public class mainPageActivity extends AppCompatActivity {
                 dialog.show();
             }
         });
+
+        userRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                System.out.println("State:"+dataSnapshot.child(userId).child("receive_problem").getValue());
+                if (dataSnapshot.child(userId).child("receive_problem").getValue(String.class).equals("false")){
+                    ansbutton.setEnabled(false);
+                }
+                else if(dataSnapshot.child(userId).child("receive_problem").getValue(String.class).equals("true")){
+                    System.out.println("true");
+                }
+                else{
+                    System.out.println("nothing");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     @Override
@@ -68,26 +112,35 @@ public class mainPageActivity extends AppCompatActivity {
     //去發問頁得功能
     public void gotoask(View v) {
         Intent it = new Intent(this, askActivity.class);
-
+        it.putExtra("UserId", userId);
         startActivity(it);
     }
 
     //去最近未回答的問題的頁面的功能
     public void gotoans(View v) {
         Intent it = new Intent(this, ansActivity.class);
+        it.putExtra("UserId", userId);
+        startActivity(it);
+    }
+
+    //前往通知頁的功能
+    public void gotonotice(View v) {
+        Intent it = new Intent(this, noticeActivity.class);
+        it.putExtra("UserId", userId);
         startActivity(it);
     }
 
 
+
     public void gotohisask(){
         Intent it = new Intent(this, hisAsk.class );
+        it.putExtra("UserId", userId);
         startActivity(it);
     }
 
     public void gotomenu(View v) {
         Intent it = new Intent(this, menuActivity.class);
-
-
+        it.putExtra("UserId", userId);
         startActivity(it);
     }
 }
