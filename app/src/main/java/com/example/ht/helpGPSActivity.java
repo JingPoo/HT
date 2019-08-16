@@ -52,7 +52,7 @@ public class helpGPSActivity extends FragmentActivity implements
     private Marker currrentUserLocationMarker;
     private static final int Request_User__Location_Code = 99;
     TextView hottea;
-    ImageButton menubutton;
+    //ImageButton menubutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +60,7 @@ public class helpGPSActivity extends FragmentActivity implements
         setContentView(R.layout.activity_help_gps);
 
         hottea = (TextView)findViewById(R.id.textHotTea);
-        menubutton = (ImageButton)findViewById(R.id.menubutton);
+        //menubutton = (ImageButton)findViewById(R.id.menubutton);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
         {

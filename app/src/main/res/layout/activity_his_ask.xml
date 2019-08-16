@@ -81,15 +81,16 @@
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="426dp"
-        android:layout_height="548dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="351dp"
+        android:layout_height="515dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.785" />
 
 
 </android.support.constraint.ConstraintLayout>
