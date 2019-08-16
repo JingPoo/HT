@@ -2,6 +2,7 @@ package com.example.ht;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,7 +14,15 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class mainPageActivity extends AppCompatActivity {
+
+    private DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("user");
 
     TextView hottea;
     ImageButton askbutton,ansbutton,noticebutton,menubutton;
@@ -53,6 +62,26 @@ public class mainPageActivity extends AppCompatActivity {
             }
         });
 
+        userRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                System.out.println("State:"+dataSnapshot.child(userId).child("receive_problem").getValue());
+                if (dataSnapshot.child(userId).child("receive_problem").getValue(String.class).equals("false")){
+                    ansbutton.setEnabled(false);
+                }
+                else if(dataSnapshot.child(userId).child("receive_problem").getValue(String.class).equals("true")){
+                    System.out.println("true");
+                }
+                else{
+                    System.out.println("nothing");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
 
