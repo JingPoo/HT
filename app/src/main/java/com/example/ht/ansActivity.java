@@ -1,5 +1,7 @@
 package com.example.ht;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -54,6 +56,7 @@ public class ansActivity extends AppCompatActivity {
     String[] name = new String[50];
     int ranPick = 0;
     String proKey = "";
+    Button reject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +71,36 @@ public class ansActivity extends AppCompatActivity {
 
         backimagebutton = (ImageButton)findViewById(R.id.backimageButton);
         sendimagebutton = (ImageButton)findViewById(R.id.sendimageButton);
-        linearLayout = (LinearLayout)findViewById(R.id.linearLayout);
         anstext = findViewById(R.id.anstext);
+        reject = findViewById(R.id.reject);
+        reject.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(ansActivity.this)
+                        .setIcon(R.drawable.logo)
+                        .setTitle("我們收到了！謝謝你撥空閱讀這則提問。")
+                        .setPositiveButton("關閉", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }).create()
+                        .show();
+            }
+        });
+
+        new AlertDialog.Builder(ansActivity.this)
+                .setIcon(R.drawable.logo)
+                .setTitle("貼心小提醒")
+                .setMessage("在大家熱心回答前~要請大家注意一下用詞內容!\n" +
+                        "像是避免使用\n" +
+                        "·罵人自找 等等明顯攻擊性話語\n" +
+                        "·激問句帶來的貶低和否定等等帶有隱含意思的語句\n" +
+                        "·強人哲學：你就要努力等等 （批評你不夠努力⋯⋯)\n" +
+                        "·歧視同志、跨性別等等觀點\n" +
+                        "真誠地回應才能溫暖並幫助需要的人!!\n")
+                .setNegativeButton("我知道了",null).create()
+                .show();
 
        /* //set Title
         String title = "Title";
@@ -115,6 +146,8 @@ public class ansActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 
     public void gotohome(View v) {

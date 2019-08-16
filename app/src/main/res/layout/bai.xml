@@ -13,8 +13,8 @@
 
     <ImageView
         android:id="@+id/baitea"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="161dp"
+        android:layout_height="110dp"
         android:layout_gravity="center|center_vertical"
         android:baselineAlignBottom="true"
         app:srcCompat="@drawable/bai" />
@@ -27,8 +27,8 @@
 
     <TextView
         android:id="@+id/text1"
-        android:layout_width="362dp"
-        android:layout_height="70dp"
+        android:layout_width="227dp"
+        android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
         android:text="@string/baitext"
         android:textAlignment="center" />
