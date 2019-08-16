@@ -79,22 +79,6 @@
 
     //設定帳號欄位
 
-    <EditText
-        android:id="@+id/usereditText"
-        android:layout_width="308dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:background="#B4FFFFFF"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="帳號"
-        android:inputType="textMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneeditText" />
-
     //設定密碼欄位
 
     <EditText
@@ -109,9 +93,9 @@
         android:hint="密碼"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usereditText" />
+        app:layout_constraintTop_toBottomOf="@+id/phoneeditText" />
 
     //確認設定密碼欄位(再輸入一次密碼)
 
@@ -169,7 +153,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="#00FFFFFF"
-        android:onClick="gotoSignIn"
         app:layout_constraintEnd_toStartOf="@+id/guideline22"
         app:layout_constraintTop_toBottomOf="@+id/psweditText2"
         app:srcCompat="@drawable/rightarrow" />
@@ -180,4 +163,5 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.87" />
+
 </android.support.constraint.ConstraintLayout>

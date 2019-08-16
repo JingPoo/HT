@@ -19,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
@@ -36,12 +37,14 @@ public class ansActivity extends AppCompatActivity {
     private DatabaseReference proRef = FirebaseDatabase.getInstance().getReference("problem");
     private DatabaseReference proDeRef = proRef.child(proid);
     private DatabaseReference repRef =FirebaseDatabase.getInstance().getReference("reply");
+    private DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("user");
 
     public static final String REPID_KEY ="id_reply";
     public static final String PROID_KEY ="id_problem";
     public static final String CONTENT_KEY ="content_reply";
     public static final String TEAID_KEY ="id_tea";
     public static final String TIME_KEY ="time_reply";
+    public static final String FROM_KEY ="from";
     public static final String REPORT_KEY ="been_reported_reply";
     public static final String INAPPRO_KEY ="inappropriate_content_reply";
     public static final String TAG ="ReplyingQuestion";
@@ -56,8 +59,8 @@ public class ansActivity extends AppCompatActivity {
 
     LinearLayout linearLayout;
     EditText anstext;
-    //髒話列表
-    ArrayList<String> a = new ArrayList(Arrays.asList("幹","靠","機掰","你娘","屎","乳頭","雞雞","雞掰","雞巴","雞八","王八","哭邀","哭腰","怪胎","腦殘"));
+    //髒話列表(要更新兩邊都要更新) ----->未來用Function做同步
+    ArrayList<String> a = new ArrayList(Arrays.asList("幹","靠","機掰","你娘","屎","乳頭","雞雞","雞掰","雞巴","雞八","王八","哭邀","哭腰","怪胎","腦殘","白癡","北七","媽的","低能","智障","屁眼","陰道","陰莖","去死","腦殘","喜憨"));
 
     //String[] name = new String[50];
     int ranPick = 0;
@@ -137,6 +140,7 @@ public class ansActivity extends AppCompatActivity {
     public void gotohome(View v) {
         finish();
     }
+    public void sendgotohome(){finish();}
     public void gotonotice(View v) {
         Intent it = new Intent(this, noticeActivity.class);
         it.putExtra("UserId", userId);
@@ -195,11 +199,13 @@ public class ansActivity extends AppCompatActivity {
             Map<String, Object> dataToSave = new HashMap<String, Object>();
 
             dataToSave.put(CONTENT_KEY, ans);
-           // dataToSave.put(PROID_KEY, proid);
-            dataToSave.put(TIME_KEY, repTime);
+            // dataToSave.put(PROID_KEY, proid);
+            dataToSave.put(TIME_KEY, ServerValue.TIMESTAMP);
+            dataToSave.put(FROM_KEY, userId);
             dataToSave.put(REPORT_KEY, reported);
             dataToSave.put(INAPPRO_KEY, inappro);
             dataToSave.put(TEAID_KEY, teaid);
+            dataToSave.put(PROID_KEY,proKey);
 
             repRef.child(repid).setValue(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
@@ -212,11 +218,16 @@ public class ansActivity extends AppCompatActivity {
                     Log.w(TAG, "Document was not saved!", e);
                 }
             });
+            if(userId.isEmpty() == false) {
+                userRef.child(userId).child("reply").child(repid).setValue(ans);
+            }
             anstext.setText("");
             //testing
             System.out.println(ans);
+
+            sendgotohome();
+
+
         }
-
-
     }
 }
