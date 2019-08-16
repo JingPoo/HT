@@ -47,7 +47,7 @@
 
 
         android:gravity="start|top"
-        android:hint="電子郵件"
+        android:hint="電子郵件 (測試可用test@gmail.com)"
 
         android:inputType="textMultiLine"
         android:password="false"
@@ -70,7 +70,7 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/shape_rectangle2"
         android:ems="10"
-        android:hint="密碼"
+        android:hint="密碼         (測試密碼:123456)"
         android:inputType="textPassword"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
