@@ -139,7 +139,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:background="#00FFFFFF"
-        android:onClick="backtosignin"
+        android:onClick="gotoSignIn"
         android:text="登入"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/notsignedupeditText"
@@ -153,7 +153,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="#00FFFFFF"
-        android:onClick="gotoSignIn"
         app:layout_constraintEnd_toStartOf="@+id/guideline22"
         app:layout_constraintTop_toBottomOf="@+id/psweditText2"
         app:srcCompat="@drawable/rightarrow" />

@@ -60,6 +60,18 @@ public class signupActivity extends AppCompatActivity {
     private EditText phoneeditTextEdit;
     private EditText usereditTextEdit;
 
+
+    private DatabaseReference signupRef = FirebaseDatabase.getInstance().getReference("user");
+
+    public static final String NAME_KEY ="real_name";
+    public static final String PHONE_KEY ="cellphone_number";
+    public static final String EMAIL_KEY ="email";
+    public static final String ACCUNT_KEY ="id_account";
+    public static final String PASSWORD_KEY ="password";
+    public static final String RECIEVEPRO_KEY ="receive_problem";
+    public static final String REPORTEDTIME_KEY ="reported_times";
+    public static final String TAG ="SigningUp";
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
@@ -79,17 +91,22 @@ public class signupActivity extends AppCompatActivity {
 
 
 
+
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String emaileditText = emaileditTextEdit.getText().toString();
-                String psweditText1 = psweditText1Edit.getText().toString();
-                String psweditText2 = psweditText2Edit.getText().toString();
+                 final String emaileditText = emaileditTextEdit.getText().toString();
+                 final String psweditText1 = psweditText1Edit.getText().toString();
+                 final String psweditText2 = psweditText2Edit.getText().toString();
+                 final String nameeditText = nameeditTextEdit.getText().toString();
+                 final String phoneeditText = phoneeditTextEdit.getText().toString();
+                 //是否接收問題(請假)
+                 final Boolean receivepro = true;
+                 //被檢舉次數
+                 final int reportedtime = 0;
 
-                String nameeditText = nameeditTextEdit.getText().toString();
-                String phoneeditText = phoneeditTextEdit.getText().toString();
 
-
+                //阻擋不完整資料
                 if(TextUtils.isEmpty(nameeditText)){
                     Toast.makeText(signupActivity.this, "請填入姓名", Toast.LENGTH_SHORT).show();
                     return;
@@ -113,6 +130,32 @@ public class signupActivity extends AppCompatActivity {
                     Toast.makeText(signupActivity.this, "密碼不一致請重新輸入", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+
+                //都成功，將資料傳入db中
+                System.out.println(nameeditText + emaileditText + phoneeditText + psweditText1);
+                //key不能有"." 用"a"->"."
+                String email = emaileditText.replace('.','a');
+                    signupRef.child(email);
+                    Map<String, Object> dataToSave = new HashMap<String, Object>();
+                    dataToSave.put(NAME_KEY, nameeditText);
+                    dataToSave.put(PHONE_KEY, phoneeditText);
+                    dataToSave.put(PASSWORD_KEY, psweditText1);
+                    dataToSave.put(RECIEVEPRO_KEY, receivepro);
+                    dataToSave.put(REPORTEDTIME_KEY, reportedtime);
+
+                    signupRef.child(email).setValue(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d(TAG, "Document has been saved!");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Document was not saved!", e);
+                        }
+                    });
+
                 mAuth.createUserWithEmailAndPassword(emaileditText, psweditText1)
                         .addOnCompleteListener(signupActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -123,6 +166,7 @@ public class signupActivity extends AppCompatActivity {
                                     intent.setClass(signupActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     finish();
+
                                 } else {
                                     Toast.makeText(signupActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
