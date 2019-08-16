@@ -1,8 +1,10 @@
 package com.example.ht;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,13 +12,35 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.lang.String;
+import java.util.HashMap;
+import java.util.Map;
 
 public class askActivity extends AppCompatActivity {
+
+    //private DatabaseReference databaseReference;
+    private DatabaseReference proRef = FirebaseDatabase.getInstance().getReference("problem");
+
+
+    public static final String TITLE_KEY ="title_problem";
+    public static final String CONTENT_KEY ="content_problem";
+    public static final String CATEGORY_KEY ="category_problem";
+    public static final String TIME_KEY ="time_problem";
+    public static final String STAGE_KEY ="stage";
+    //public static final String PROID_KEY ="id_problem";
+    public static final String REPORT_KEY ="been_reported_problem";
+    public static final String INAPPRO_KEY ="inappropriate_content_problem";
+    public static final String TAG ="AskingQuestion";
+
     TextView hottea;
     Button noticebutton,sendbutton;
     ImageButton backimageButton,menubutton;
@@ -50,6 +74,15 @@ public class askActivity extends AppCompatActivity {
     }
 
     public void sendAsk(View v){
+
+        //產生獨一無二 id_problem
+        proRef.push();
+
+        // ProblemId (Function)
+        String proid= proRef.push().getKey();
+
+
+
         //Title
         String askTitle = questitle.getText().toString();
 
@@ -86,12 +119,48 @@ public class askActivity extends AppCompatActivity {
         //Stage
         int stage = 1;
 
+
+        //Been Reported (Function)
+        Boolean reported = false;
+
+        //Inappropriate Content (Function)
+        Boolean inappro = false;
+
         //Testing
         System.out.println(askTitle);
         System.out.println(askType);
         System.out.println(askCont);
         System.out.println(askTime);
         System.out.println(stage);
+
+        //寫入db
+        if (askTitle.isEmpty() || askCont.isEmpty()) { return; }
+        Map<String, Object> dataToSave = new HashMap<String, Object>();
+        dataToSave.put(TITLE_KEY,askTitle);
+        dataToSave.put(CONTENT_KEY,askCont);
+        dataToSave.put(CATEGORY_KEY,askType);
+        dataToSave.put(TIME_KEY,askTime);
+        dataToSave.put(STAGE_KEY,stage);
+        dataToSave.put(INAPPRO_KEY,reported);
+        dataToSave.put(REPORT_KEY,inappro);
+        proRef.child(proid).setValue(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.d(TAG,"Document has been saved!");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w(TAG,"Document was not saved!",e);
+            }
+        });
+
+        questitle.setText("");
+        quescontent.setText("");
+        type.setSelection(0);
+        //sendbutton.setText("已送出! 靜待回覆");
+
+        //看能不能加個彈跳視窗說已送出
     }
 
 }
