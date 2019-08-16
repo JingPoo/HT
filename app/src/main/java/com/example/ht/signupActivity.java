@@ -75,7 +75,7 @@ public class signupActivity extends AppCompatActivity {
 
         nameeditTextEdit = (EditText) findViewById(R.id.nameeditText);
         phoneeditTextEdit = (EditText) findViewById(R.id.phoneeditText);
-        usereditTextEdit = (EditText) findViewById(R.id.usereditText);
+
 
 
 
@@ -88,7 +88,7 @@ public class signupActivity extends AppCompatActivity {
 
                 String nameeditText = nameeditTextEdit.getText().toString();
                 String phoneeditText = phoneeditTextEdit.getText().toString();
-                String usereditText = usereditTextEdit.getText().toString();
+
 
                 if(TextUtils.isEmpty(nameeditText)){
                     Toast.makeText(signupActivity.this, "請填入姓名", Toast.LENGTH_SHORT).show();
@@ -100,9 +100,6 @@ public class signupActivity extends AppCompatActivity {
                 }
                 if(TextUtils.isEmpty(phoneeditText)){
                     Toast.makeText(signupActivity.this, "請填入電話號碼", Toast.LENGTH_SHORT).show();
-                    return;
-                }if(TextUtils.isEmpty(usereditText)){
-                    Toast.makeText(signupActivity.this, "請輸入帳號", Toast.LENGTH_SHORT).show();
                     return;
                 }if(TextUtils.isEmpty(psweditText1)){
                     Toast.makeText(signupActivity.this, "請輸入密碼", Toast.LENGTH_SHORT).show();
