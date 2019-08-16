@@ -214,6 +214,7 @@ public class askActivity extends AppCompatActivity {
                 questitle.setText("");
                 quescontent.setText("");
                 type.setSelection(0);
+                Toast.makeText(this, "已送出! 靜待回覆", Toast.LENGTH_SHORT).show();
                 //sendbutton.setText("已送出! 靜待回覆");
 
                 //看能不能加個彈跳視窗說已送出
