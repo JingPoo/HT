@@ -108,7 +108,28 @@ public class MainActivity extends AppCompatActivity {
         noticebutton = (Button)findViewById(R.id.noticebutton);
         menubutton = (Button)findViewById(R.id.menubutton);*/
 
+        // Obtain the FirebaseAnalytics instance.
+        /*mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        FirebaseDatabase mdb = FirebaseDatabase.getInstance();
+        DatabaseReference mRef = mdb.getReference();
+        DatabaseReference mDataRed = mRef.child("user");
+    }
+
+    //去主頁的功能
+    public void gotoMainPage(View v) {
+        Intent it = new Intent(this, mainPageActivity.class);
+
+        startActivity(it);
+    }
+
+    //去註冊頁的功能
+    public void gotoSignUp(View v) {
+        Intent it = new Intent(this, signupActivity.class);*/
+
     //signinuserText = (EditText)findViewById(R.id.signinuserText);
+
 
     // Obtain the FirebaseAnalytics instance.
     //mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);

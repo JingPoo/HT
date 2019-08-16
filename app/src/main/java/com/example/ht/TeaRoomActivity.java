@@ -145,12 +145,6 @@ public class TeaRoomActivity extends AppCompatActivity {
         });
     }
 
-    //前往通知頁的功能
-    public void gotonotice(View v) {
-        Intent it = new Intent(this, noticeActivity.class);
-
-        startActivity(it);
-    }
 
     public void gotomenu(View v) {
         Intent it = new Intent(this, menuActivity.class);

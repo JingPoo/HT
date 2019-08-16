@@ -21,7 +21,7 @@ public class menuActivity extends AppCompatActivity {
     private DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("user");
 
      ImageButton closeimagebutton;
-     Button teahousebutton,dictbutton,settingbutton;
+     Button teahousebutton;
      Switch leaveswitch;
      String userId = "";
 
@@ -32,8 +32,6 @@ public class menuActivity extends AppCompatActivity {
 
         closeimagebutton = (ImageButton)findViewById(R.id.closeimageButton);
         teahousebutton = (Button)findViewById(R.id.teahousebutton);
-        dictbutton = (Button)findViewById(R.id.dictbutton);
-        settingbutton = (Button)findViewById(R.id.settingbutton);
         leaveswitch = (Switch)findViewById(R.id.leaveswitch);
 
         Intent it = getIntent();

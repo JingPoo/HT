@@ -25,8 +25,12 @@ public class mainPageActivity extends AppCompatActivity {
     private DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("user");
 
     TextView hottea;
-    ImageButton askbutton,ansbutton,noticebutton,menubutton;
+
+    ImageButton askbutton,ansbutton,menubutton;
+
+
     String userId = "";
+
     Button teach;
 
     float x1 = 0, x2 = 0, y1 = 0, y2 = 0;
@@ -40,7 +44,6 @@ public class mainPageActivity extends AppCompatActivity {
         hottea = (TextView)findViewById(R.id.textHotTea);
         askbutton = (ImageButton)findViewById(R.id.asknowButton);
         ansbutton= (ImageButton)findViewById(R.id.ansnowButton);
-        noticebutton = (ImageButton)findViewById(R.id.inboxButton);
         teach = findViewById(R.id.teachButton);
         menubutton = (ImageButton)findViewById(R.id.menubutton);
 
@@ -126,6 +129,7 @@ public class mainPageActivity extends AppCompatActivity {
         it.putExtra("UserId", userId);
         startActivity(it);
     }
+
 
 
     public void gotohisask(){

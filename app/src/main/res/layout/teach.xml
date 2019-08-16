@@ -1,34 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--教學彈出視窗:進入最近回答-->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        android:id="@+id/blank1" />
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/text0" />
 
-    <pl.droidsonroids.gif.GifImageView
+        <pl.droidsonroids.gif.GifImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/askandans"
+        android:src="@drawable/teach"
         />
 
+
     <TextView
+        android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="點選茶壺以移至回答頁面"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/text1" />
-    <Button
+        android:layout_gravity="left"
+        android:text="＃點選茶壺以移至最進未回答頁面" />
+
+    <TextView
+        android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#00FFFFFF"
-        android:text="下一則小提示"
-        android:layout_gravity="right"
-        android:id="@+id/next" />
-</LinearLayout>
+        android:layout_gravity="left"
+        android:text="＃點選茶杯以移至發問頁面" />
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="＃向左滑進入歷史發問與歷史回答" />
+
+    <TextView
+        android:id="@+id/text4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="＃點選左上角選單以叫出選單" />
+        </LinearLayout>
+

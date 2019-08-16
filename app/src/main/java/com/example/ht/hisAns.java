@@ -150,11 +150,13 @@ public class hisAns extends AppCompatActivity {
 
         finish();
     }
+
     public void gotonotice(View v) {
         Intent it = new Intent(this, noticeActivity.class);
         it.putExtra("UserId", userId);
         startActivity(it);
     }
+
     public void gotomenu(View v) {
         Intent it = new Intent(this, menuActivity.class);
         it.putExtra("UserId", userId);

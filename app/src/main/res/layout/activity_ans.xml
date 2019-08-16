@@ -7,8 +7,6 @@
     android:background="#EDF1D5"
     tools:context=".ansActivity">
 
-    //Hot Tea標籤
-
     <TextView
         android:id="@+id/textHotTea"
         android:layout_width="171dp"
@@ -26,30 +24,15 @@
         app:layout_constraintVertical_bias="0.024" />
 
     <ImageButton
-        android:id="@+id/inboxButton"
-        android:layout_width="69dp"
-        android:layout_height="74dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="120dp"
-        android:background="#00FFFFFF"
-        android:onClick="gotonotice"
-        app:layout_constraintBottom_toTopOf="@+id/mountainView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textHotTea"
-        app:srcCompat="@drawable/inbox_small" />
-
-    <ImageButton
         android:id="@+id/menubutton"
         android:layout_width="wrap_content"
         android:layout_height="49dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:background="#00FFFFFF"
         android:onClick="gotomenu"
-        app:layout_constraintBottom_toTopOf="@+id/mountainView"
-        app:layout_constraintEnd_toStartOf="@+id/textHotTea"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/menu" />
 
     <android.support.constraint.Guideline
@@ -78,7 +61,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:background="#B4FFFFFF"
+        android:background="@drawable/shape_rectangle2"
         android:text="問題"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,43 +80,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#607CB342"
-        android:onClick="gotonotice"
         android:orientation="vertical"
         app:layout_constraintGuide_end="48dp" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="96dp"
 
-        android:background="#DED8C8"
-        android:gravity="end"
-
-        android:orientation="horizontal"
-        android:padding="20dp"
+    <EditText
+        android:id="@+id/anstext"
+        android:layout_width="282dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/shape_rectangle"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <EditText
-            android:id="@+id/anstext"
-            android:layout_width="288dp"
-            android:layout_height="match_parent"
-            android:background="#FDFCFC"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine" />
+    <ImageButton
+        android:id="@+id/sendimageButton"
+        android:layout_width="72dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="#00717465"
+        android:onClick="returnAns"
+        app:layout_constraintBottom_toBottomOf="parent"
 
-        <ImageButton
-            android:id="@+id/sendimageButton"
-            android:layout_width="72dp"
-            android:layout_height="54dp"
-            android:background="#00717465"
-            android:onClick="returnAns"
-            app:srcCompat="@android:drawable/ic_media_play" />
+        app:layout_constraintStart_toEndOf="@+id/anstext"
+        app:srcCompat="@android:drawable/ic_media_play" />
 
-    </LinearLayout>
 
+        
     <TextView
         android:id="@+id/quescontent"
 
@@ -143,10 +121,10 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
 
-        android:background="#B4FFFFFF"
+        android:background="@drawable/shape_rectangle2"
         android:text="問題內容"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questitle" />
 

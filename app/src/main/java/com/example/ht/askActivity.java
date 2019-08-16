@@ -1,5 +1,7 @@
 package com.example.ht;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -81,6 +83,20 @@ public class askActivity extends AppCompatActivity {
         type = (Spinner)findViewById(R.id.type);
 
 
+        new AlertDialog.Builder(askActivity.this)
+                .setIcon(R.drawable.logo)
+                .setTitle("貼心小提醒")
+                .setMessage("嗨!今天的你過得怎麼樣呢?\n" +
+                        "在跟別人聊聊之前，不妨先看看自己的狀況!\n" +
+                        "記得別人的意見並不是絕對的。\n" +
+                        "你才是能替自己作主的人!\n" +
+                        "嘗試著走出吧!跟父母朋友聊聊，\n" +
+                        "或是尋求諮商師的幫助更有用喔!\n"
+                        )
+                .setNegativeButton("我知道了",null).create()
+                .show();
+
+
         Intent it = getIntent();
         userId = it.getStringExtra("UserId");
         //Toast.makeText(this, "Here is userId:"+userId, Toast.LENGTH_SHORT).show();
@@ -89,16 +105,19 @@ public class askActivity extends AppCompatActivity {
     System.out.println("髒話列表:"+a);
 
 
+
     }
 
     public void gotohome(View v) {
         finish();
     }
+
     public void gotonotice(View v) {
         Intent it = new Intent(this, noticeActivity.class);
         it.putExtra("UserId", userId);
         startActivity(it);
     }
+
     public void gotomenu(View v) {
         Intent it = new Intent(this, menuActivity.class);
         it.putExtra("UserId", userId);

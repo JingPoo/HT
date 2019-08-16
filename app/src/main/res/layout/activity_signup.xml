@@ -33,7 +33,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="8dp"
-        android:background="#B4FFFFFF"
+        android:background="@drawable/shape_rectangle2"
         android:ems="10"
         android:gravity="start|top"
         android:hint="真實姓名"
@@ -51,7 +51,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:background="#B4FFFFFF"
+        android:background="@drawable/shape_rectangle2"
         android:ems="10"
         android:hint="學校電子郵件"
         android:inputType="textEmailAddress"
@@ -68,7 +68,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:background="#B4FFFFFF"
+        android:background="@drawable/shape_rectangle2"
         android:ems="10"
         android:hint="手機號碼"
         android:inputType="phone"
@@ -79,6 +79,23 @@
 
     //設定帳號欄位
 
+<!--
+    <EditText
+        android:id="@+id/usereditText"
+        android:layout_width="308dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/shape_rectangle2"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="帳號"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneeditText" />
+-->
     //設定密碼欄位
 
     <EditText
@@ -88,7 +105,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:background="#B4FFFFFF"
+        android:background="@drawable/shape_rectangle2"
         android:ems="10"
         android:hint="密碼"
         android:inputType="textPassword"
@@ -106,7 +123,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:background="#B4FFFFFF"
+        android:background="@drawable/shape_rectangle2"
         android:ems="10"
         android:hint="再輸入一次密碼"
         android:inputType="textPassword"
@@ -116,18 +133,17 @@
 
     //一些文字標籤
 
-    <EditText
+    <TextView
         android:id="@+id/notsignedupeditText"
         android:layout_width="136dp"
         android:layout_height="25dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="24dp"
         android:background="#00FFFFFF"
-        android:clickable="false"
-        android:editable="false"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="已經註冊了？去"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterButton" />
 
@@ -137,10 +153,11 @@
         android:id="@+id/signinbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="12dp"
         android:background="#00FFFFFF"
         android:onClick="gotoSignIn"
         android:text="登入"
+        android:textAlignment="textStart"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/notsignedupeditText"
         app:layout_constraintTop_toBottomOf="@+id/enterButton" />
@@ -163,5 +180,24 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.87" />
+
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/smallcup2" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/smallpot2" />
 
 </android.support.constraint.ConstraintLayout>
