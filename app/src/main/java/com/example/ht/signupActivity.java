@@ -38,8 +38,8 @@ public class signupActivity extends AppCompatActivity {
     public static final String TAG ="SigningUp";
 
 
-    TextView signuptextView;
-    EditText nameeditText,emaileditText,phoneeditText,usereditText,psweditText1,psweditText2,notsignedupeditText;
+    TextView signuptextView,notsignedupeditText;
+    EditText nameeditText,emaileditText,phoneeditText,usereditText,psweditText1,psweditText2;
     ImageButton enterButton;
     Button signinButton;
 
@@ -56,7 +56,7 @@ public class signupActivity extends AppCompatActivity {
         usereditText = (EditText)findViewById(R.id.usereditText);
         psweditText1 = (EditText)findViewById(R.id.psweditText1);
         psweditText2 = (EditText)findViewById(R.id.psweditText2);
-        notsignedupeditText = (EditText)findViewById(R.id.notsignedupeditText);
+        notsignedupeditText = (TextView)findViewById(R.id.notsignedupeditText);
         enterButton = (ImageButton)findViewById(R.id.enterButton);
         signinButton = (Button)findViewById(R.id.signinbutton);
 
