@@ -8,36 +8,6 @@
     tools:context=".hisAsk">
 
     <TextView
-        android:id="@+id/notice"
-        android:layout_width="318dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="48dp"
-        android:background="#B4FFFFFF"
-        android:text="提出的疑問\n預覽的字..."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hottea" />
-
-    <TextView
-        android:id="@+id/notice1"
-        android:layout_width="318dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="376dp"
-        android:layout_marginEnd="48dp"
-        android:background="#B4FFFFFF"
-        android:text="提出的疑問\n預覽的字..."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notice" />
-
-    //Hot Tea標籤
-
-    <TextView
         android:id="@+id/textHotTea"
         android:layout_width="171dp"
         android:layout_height="59dp"
@@ -54,30 +24,25 @@
         app:layout_constraintVertical_bias="0.024" />
 
     <ImageButton
-        android:id="@+id/inboxButton"
-        android:layout_width="69dp"
-        android:layout_height="74dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="120dp"
-        android:background="#00FFFFFF"
-        android:onClick="gotonotice"
-        app:layout_constraintBottom_toTopOf="@+id/mountainView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textHotTea"
-        app:srcCompat="@drawable/inbox_small" />
-
-    <ImageButton
         android:id="@+id/menubutton"
         android:layout_width="wrap_content"
         android:layout_height="49dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:background="#00FFFFFF"
         android:onClick="gotomenu"
-        app:layout_constraintBottom_toTopOf="@+id/mountainView"
-        app:layout_constraintEnd_toStartOf="@+id/textHotTea"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/menu" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:text="歷史發問"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menubutton" />
 
 </android.support.constraint.ConstraintLayout>

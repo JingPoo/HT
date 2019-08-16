@@ -5,23 +5,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/bai"
-        android:id="@+id/baitea" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/blankbai" />
 
+    <ImageView
+        android:id="@+id/baitea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_vertical"
+        android:baselineAlignBottom="true"
+        app:srcCompat="@drawable/bai" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/baitext"
+        android:text=""
+        android:id="@+id/blank" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="362dp"
+        android:layout_height="70dp"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/text1" />
+        android:text="@string/baitext"
+         />
 
 </LinearLayout>

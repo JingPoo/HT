@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class mainPageActivity extends AppCompatActivity {
 
     TextView hottea;
-    ImageButton askbutton,ansbutton,noticebutton,menubutton;
+    ImageButton askbutton,ansbutton,menubutton;
     Button teach;
     float x1 = 0, x2 = 0, y1 = 0, y2 = 0;
 
@@ -27,7 +27,6 @@ public class mainPageActivity extends AppCompatActivity {
         hottea = (TextView)findViewById(R.id.textHotTea);
         askbutton = (ImageButton)findViewById(R.id.asknowButton);
         ansbutton= (ImageButton)findViewById(R.id.ansnowButton);
-        noticebutton = (ImageButton)findViewById(R.id.inboxButton);
         teach = findViewById(R.id.teachButton);
         menubutton = (ImageButton)findViewById(R.id.menubutton);
 
@@ -76,16 +75,9 @@ public class mainPageActivity extends AppCompatActivity {
     //去最近未回答的問題的頁面的功能
     public void gotoans(View v) {
         Intent it = new Intent(this, ansActivity.class);
-
         startActivity(it);
     }
 
-    //前往通知頁的功能
-    public void gotonotice(View v) {
-        Intent it = new Intent(this, noticeActivity.class);
-
-        startActivity(it);
-    }
 
     public void gotohisask(){
         Intent it = new Intent(this, hisAsk.class );

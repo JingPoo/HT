@@ -42,11 +42,7 @@ public class askActivity extends AppCompatActivity {
     public void gotohome(View v) {
         finish();
     }
-    public void gotonotice(View v) {
-        Intent it = new Intent(this, noticeActivity.class);
 
-        startActivity(it);
-    }
     public void gotomenu(View v) {
         Intent it = new Intent(this, menuActivity.class);
 

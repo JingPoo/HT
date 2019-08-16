@@ -44,11 +44,12 @@
         android:layout_marginEnd="8dp"
         android:background="#B4FFFFFF"
         android:ems="15"
-        android:gravity="start|top"
+        android:gravity="start"
         android:hint="帳號"
         android:inputType="textMultiLine"
         android:password="false"
         android:textAlignment="textStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -83,6 +84,7 @@
         android:background="#00FFFFFF"
         android:onClick="gotoSignUp"
         android:text="註冊"
+        android:textAlignment="textStart"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/gomainpageButton" />
@@ -126,4 +128,22 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="205dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/smallcup2" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/smallpot2" />
 </android.support.constraint.ConstraintLayout>

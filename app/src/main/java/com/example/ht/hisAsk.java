@@ -43,11 +43,7 @@ public class hisAsk extends AppCompatActivity {
 
         finish();
     }
-    public void gotonotice(View v) {
-        Intent it = new Intent(this, noticeActivity.class);
 
-        startActivity(it);
-    }
     public void gotomenu(View v) {
         Intent it = new Intent(this, menuActivity.class);
 
