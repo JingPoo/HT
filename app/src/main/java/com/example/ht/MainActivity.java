@@ -121,7 +121,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     //去主頁的功能
+
+    //public void gotoMainPage(View v) {
+        //String userId = signinuserText.getText().toString().replace('.','a');
+
     /*public void gotoMainPage(View v) {
+
         String userId = signinuserText.getText().toString();
         //String userId = "123";
         Intent it = new Intent(this, mainPageActivity.class);
