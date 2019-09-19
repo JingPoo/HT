@@ -261,6 +261,9 @@ public class ansActivity extends AppCompatActivity {
             });
             if(userId.isEmpty() == false) {
                 userRef.child(userId).child("reply").child(repid).setValue(ans);
+
+                proRef.child(proKey).child("id_reply").child(repid).setValue("1");
+
             }
             anstext.setText("");
             //testing

@@ -45,6 +45,13 @@ public class hisAsk extends AppCompatActivity {
         //抓userId
         Intent it = getIntent();
         userId = it.getStringExtra("UserId");
+
+       /* 想丟userID給下面
+        Intent intent2 = new Intent();
+        intent2.setClass(hisAsk.this,hisAsk.class);
+        intent2.putExtra("UserId", userId);
+        startActivity(intent2);
+        */
         //System.out.println("Here is userID(hisAsk):"+userId);
 
 
@@ -63,6 +70,8 @@ public class hisAsk extends AppCompatActivity {
                     String[] name = new String[num];
                     String[] title = new String[num];
                     String[] content = new String[num];
+                         String[] problemid = new String[num];
+
                     hashList = new ArrayList();
 
                     //把所有problem Key抓進來
@@ -80,6 +89,7 @@ public class hisAsk extends AppCompatActivity {
                         proKey = name[j];
                         title[j] = dataSnapshot.child("problem").child(proKey).child("title_problem").getValue(String.class);
                         content[j] = dataSnapshot.child("problem").child(proKey).child("content_problem").getValue(String.class);
+                             problemid[j] = dataSnapshot.child("problem").child(proKey).getKey();
                     }
 
                     //放進HashMap裡
@@ -90,6 +100,7 @@ public class hisAsk extends AppCompatActivity {
                         HashMap<String, String> hashMap = new HashMap<>();
                         hashMap.put("title", title[h]);
                         hashMap.put("content", content[h]);
+                            hashMap.put("problemID",problemid[h]);
                         hashList.add(hashMap);
                     }
 
@@ -125,12 +136,31 @@ public class hisAsk extends AppCompatActivity {
 
             Iterator it = hashList.iterator();
         Object o = hashList.get(position);
-        Object c = ((HashMap) o).get("content");
-        Object t = ((HashMap) o).get("title");
+        String c = (String) ((HashMap) o).get("content");
+        String t = (String)((HashMap) o).get("title");
+             String r = (String) ((HashMap) o).get("problemID");
+
+
 
         System.out.println(o);
         System.out.println(c);
         System.out.println(t);
+            System.out.println(r);
+
+        /*想接上面丟下來的userID
+        Intent itt = getIntent();
+        userId = itt.getStringExtra("UserID");
+        */
+
+        //丟uerid,title,content給hisAns2
+        Intent intent = new Intent();
+        intent.setClass(hisAsk.this,hisAns2.class);
+        intent.putExtra("Content", c);
+        intent.putExtra("Title",t);
+            intent.putExtra("problemID", r);
+        startActivity(intent);
+
+
 
 
             //0.1.2.3  push 2 ->  0.1.2
