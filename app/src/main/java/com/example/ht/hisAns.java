@@ -1,14 +1,18 @@
 package com.example.ht;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 public class hisAns extends AppCompatActivity {
@@ -28,6 +33,7 @@ public class hisAns extends AppCompatActivity {
     int num = 0;
     private ListView listView;
     private ListAdapter listAdapter;
+    List<HashMap<String, String>> hashList;
 
     private DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
 
@@ -57,7 +63,7 @@ public class hisAns extends AppCompatActivity {
                     String[] proname = new String[num];
                     String[] title = new String[num];
                     String[] content = new String[num];
-                    List<HashMap<String, String>> hashList = new ArrayList();
+                    hashList = new ArrayList();
 
                     //把所有reply Key抓進來
                     for(DataSnapshot d : dataSnapshot.child("user").child(userId).child("reply").getChildren()) {
@@ -113,7 +119,7 @@ public class hisAns extends AppCompatActivity {
                     //顯示title & content版本
                     listAdapter = new SimpleAdapter(hisAns.this,hashList, android.R.layout.simple_list_item_2, new String[]{"title", "content"}, new int[]{android.R.id.text1, android.R.id.text2});
                     listView.setAdapter(listAdapter);
-
+                    listView.setOnItemClickListener(onClickListView);
 
                 }
             }
@@ -124,6 +130,41 @@ public class hisAns extends AppCompatActivity {
             }
         });
     }
+
+
+    //simpleAdapter listener
+
+                    AdapterView.OnItemClickListener onClickListView = new AdapterView.OnItemClickListener(){
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            //Toast.makeText(hisAns.this,"點選第 "+(position +1) +" 個 \n內容：", Toast.LENGTH_SHORT).show();
+                            System.out.println("已點選:"+position);
+
+                            Iterator it = hashList.iterator();
+                            while (it.hasNext()) {
+                                System.out.println(it.next());
+                            }
+                            if(it.hasNext() == false){
+                                System.out.println("No!");
+                            }
+
+
+                            /*
+                            bai = findViewById(R.id.bai);
+                            bai.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    LayoutInflater inflater=LayoutInflater.from(TeaRoomActivity.this);
+                                    final View popView= inflater.inflate(R.layout.bai,null);
+                                    final AlertDialog.Builder builder=new AlertDialog.Builder(TeaRoomActivity.this);
+                                    builder.setView(popView);
+                                    final AlertDialog dialog=builder.setNegativeButton("關閉",null).create();
+                                    dialog.show();
+                                }
+                            });*/
+                        }
+
+                    };
 
     @Override
     public boolean onTouchEvent(MotionEvent event){
