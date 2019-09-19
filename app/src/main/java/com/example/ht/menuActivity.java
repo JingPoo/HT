@@ -72,9 +72,14 @@ public class menuActivity extends AppCompatActivity {
 
     public void gototearoom(View v) {
         Intent it = new Intent(this, TeaRoomActivity.class );
+        it.putExtra("UserId", userId);
         startActivity(it);
     }
     public void gotohelp(View v) {
+        Intent it = new Intent(this, helpGPSActivity.class );
+        startActivity(it);
+    }
+    public void gotoextra(View v) {
         Intent it = new Intent(this, helpGPSActivity.class );
         startActivity(it);
     }

@@ -27,4 +27,5 @@
     <string name="milk">奶茶</string>
     <string name="milktext">是融入普羅大眾日常生活中的飲品，不論是中西方都隨處可見！或許你的答覆沒有一眼讓人感到獨特，但又恰到好處，是大家都可以接受的呢！</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_extra">extraActivity</string>
 </resources>
