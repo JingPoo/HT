@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -20,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 public class hisAsk extends AppCompatActivity {
@@ -29,6 +31,7 @@ public class hisAsk extends AppCompatActivity {
     int num = 0;
     private ListView listView;
     private ListAdapter listAdapter;
+    List<HashMap<String, String>> hashList;
     //private ArrayList<String> list = new ArrayList<String>();
 
     private DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
@@ -60,7 +63,7 @@ public class hisAsk extends AppCompatActivity {
                     String[] name = new String[num];
                     String[] title = new String[num];
                     String[] content = new String[num];
-                    List<HashMap<String, String>> hashList = new ArrayList();
+                    hashList = new ArrayList();
 
                     //把所有problem Key抓進來
                     for(DataSnapshot d : dataSnapshot.child("user").child(userId).child("problem").getChildren()) {
@@ -101,6 +104,7 @@ public class hisAsk extends AppCompatActivity {
                     //顯示title & content版本
                     listAdapter = new SimpleAdapter(hisAsk.this,hashList, android.R.layout.simple_list_item_2, new String[]{"title", "content"}, new int[]{android.R.id.text1, android.R.id.text2});
                     listView.setAdapter(listAdapter);
+                    listView.setOnItemClickListener(onClickListView);
 
 
                 }
@@ -112,6 +116,54 @@ public class hisAsk extends AppCompatActivity {
             }
         });
     }
+    //simpleAdapter listener
+    private AdapterView.OnItemClickListener onClickListView = new AdapterView.OnItemClickListener(){
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            //Toast.makeText(hisAns.this,"點選第 "+(position +1) +" 個 \n內容：", Toast.LENGTH_SHORT).show();
+            System.out.println("已點選:"+position);
+
+            Iterator it = hashList.iterator();
+        Object o = hashList.get(position);
+        Object c = ((HashMap) o).get("content");
+        Object t = ((HashMap) o).get("title");
+
+        System.out.println(o);
+        System.out.println(c);
+        System.out.println(t);
+
+
+            //0.1.2.3  push 2 ->  0.1.2
+            //while(it.hasNext()) {
+            /*    for (int a = 0; a <= position; a++) {
+                    //System.out.println(it.next());
+                    if (a == position) {
+                        System.out.println("Here!!");
+                    } else {
+                        //System.out.println(it.next());
+                    }
+
+                }*/
+            //}
+           /* int a =0;
+            while (it.hasNext()) {
+
+                //System.out.println(it.next());
+                if(a == position){
+                                System.out.println(it.next());
+                                return;
+                            }
+                else{
+                    a++;
+                }
+            }
+/*
+           /* if(it.hasNext() == false){
+                System.out.println("No!");
+            }*/
+        }
+
+    };
 
     @Override
     public boolean onTouchEvent(MotionEvent event){
