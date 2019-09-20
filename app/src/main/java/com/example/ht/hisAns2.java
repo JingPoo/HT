@@ -26,6 +26,7 @@ public class hisAns2 extends AppCompatActivity {
     String proID = "";
     String Title = "";
 
+
     private DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
     private ListView listView;
     private ListAdapter listAdapter;
@@ -49,11 +50,12 @@ public class hisAns2 extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     int i = 0;
-                    String[] name = new String[2];
+                    String[] replyID = new String[2];
                     //抓到點選問題的replyID們了!!
                     for(DataSnapshot d : dataSnapshot.child("problem").child(proID).child("id_reply").getChildren()) {
-                        name[i] = d.getKey();
-                        System.out.println(name[i]);
+                        replyID[i] = d.getKey();
+                        System.out.println(replyID[i]);
+                     
                         i++;
 
                         //接下來就是要用replyID去抓reply的內容進LISTVIEW
