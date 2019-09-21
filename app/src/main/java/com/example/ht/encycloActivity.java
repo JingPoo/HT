@@ -18,7 +18,7 @@ public class encycloActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_encyclo);
 
-        check = findViewById(R.id.check);
+        check =  findViewById(R.id.check);
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,7 +31,7 @@ public class encycloActivity extends AppCompatActivity {
             }
         });
 
-        warm = findViewById(R.id.warning);
+        warm =  findViewById(R.id.warning);
         warm.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
