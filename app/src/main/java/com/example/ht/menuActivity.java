@@ -22,6 +22,7 @@ public class menuActivity extends AppCompatActivity {
 
      ImageButton closeimagebutton;
      Button teahousebutton;
+    Button encyclobutton;
      Switch leaveswitch;
      String userId = "";
 
@@ -32,6 +33,7 @@ public class menuActivity extends AppCompatActivity {
 
         closeimagebutton = (ImageButton)findViewById(R.id.closeimageButton);
         teahousebutton = (Button)findViewById(R.id.teahousebutton);
+        encyclobutton = (Button)findViewById(R.id.encyclobutton);
         leaveswitch = (Switch)findViewById(R.id.leaveswitch);
 
         Intent it = getIntent();
@@ -79,8 +81,9 @@ public class menuActivity extends AppCompatActivity {
         Intent it = new Intent(this, helpGPSActivity.class );
         startActivity(it);
     }
-    public void gotoextra(View v) {
-        Intent it = new Intent(this, helpGPSActivity.class );
+    //心靜小百科
+    public void gotoencyclo(View v) {
+        Intent it = new Intent(this, encycloActivity.class );
         startActivity(it);
     }
     public void gotohome(View v) {
