@@ -5,9 +5,11 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,6 +28,8 @@ public class hisAns2 extends AppCompatActivity {
     String proID = "";
     String Title = "";
 
+    TextView textView1,textView2,textView3,textView4,textView5;
+    Button button1,button2,button3,button4,button5;
 
     private DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
     private ListView listView;
@@ -36,6 +40,17 @@ public class hisAns2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_his_ans2);
+
+        textView1 = (TextView)findViewById(R.id.textView1);
+        textView2 = (TextView)findViewById(R.id.textView2);
+        textView3 = (TextView)findViewById(R.id.textView3);
+        textView4 = (TextView)findViewById(R.id.textView4);
+        textView5 = (TextView)findViewById(R.id.textView5);
+        button1 = (Button)findViewById(R.id.button1);
+        button2 = (Button)findViewById(R.id.button2);
+        button3 = (Button)findViewById(R.id.button3);
+        button4 = (Button)findViewById(R.id.button4);
+        button5 = (Button)findViewById(R.id.button5);
 
         //抓在hisAsk頁面點的問題
         Intent it = getIntent();
@@ -50,20 +65,62 @@ public class hisAns2 extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     int i = 0;
-                    String[] replyID = new String[2];
+                    //要考慮若回覆超過5則???
+                    String[] replyID = new String[5];
                     //抓到點選問題的replyID們了!!
                     for(DataSnapshot d : dataSnapshot.child("problem").child(proID).child("id_reply").getChildren()) {
                         replyID[i] = d.getKey();
                         System.out.println(replyID[i]);
-                     
                         i++;
-
-                        //接下來就是要用replyID去抓reply的內容進LISTVIEW
-
                     }
-                   // String replyText = dataSnapshot.child("reply").child(replyID).child("content_reply").getValue(String.class);
 
-                    //System.out.println("These are replies to this question "+replyText);
+
+                    //接下來就是要用replyID去抓reply的內容進textview
+                    if(replyID[0] != null){
+                        textView1.setText(dataSnapshot.child("reply").child(replyID[0]).child("content_reply").getValue(String.class) );
+                    }
+                        else {
+                            textView1.setText("尚無回覆");
+                            button1.setClickable(false);
+                            button1.setBackgroundColor(0x54474E1D);
+                            button1.setTextColor(0xA82B2525);
+                    }
+                    if(replyID[1] != null){
+                        textView2.setText(dataSnapshot.child("reply").child(replyID[1]).child("content_reply").getValue(String.class));
+                    }
+                         else {
+                            textView2.setText("尚無回覆");
+                            button2.setClickable(false);
+                            button2.setBackgroundColor(0x54474E1D);
+                            button2.setTextColor(0xA82B2525);
+                         }
+                    if(replyID[2] != null){
+                        textView3.setText(dataSnapshot.child("reply").child(replyID[2]).child("content_reply").getValue(String.class));
+                    }
+                          else {
+                             textView3.setText("尚無回覆");
+                             button3.setClickable(false);
+                             button3.setBackgroundColor(0x54474E1D);
+                             button3.setTextColor(0xA82B2525);
+                         }
+                    if(replyID[3] != null){
+                        textView4.setText(dataSnapshot.child("reply").child(replyID[3]).child("content_reply").getValue(String.class));
+                    }
+                         else {
+                             textView4.setText("尚無回覆");
+                             button4.setClickable(false);
+                             button4.setBackgroundColor(0x54474E1D);
+                             button4.setTextColor(0xA82B2525);
+                          }
+                    if(replyID[4] != null){
+                        textView5.setText(dataSnapshot.child("reply").child(replyID[4]).child("content_reply").getValue(String.class));
+                    }
+                         else {
+                             textView5.setText("尚無回覆");
+                             button5.setClickable(false);
+                             button5.setBackgroundColor(0x54474E1D);
+                             button5.setTextColor(0xA82B2525);
+                         }
                 }
             }
 
@@ -95,4 +152,6 @@ public class hisAns2 extends AppCompatActivity {
         //it.putExtra("UserId", userId);
         startActivity(it);
     }
+
+
 }
