@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -25,16 +26,17 @@ public class hisAns2 extends AppCompatActivity {
 
     String userId = "";
     String Content = "";
-    String proID = "";
     String Title = "";
+    String proID = "";
 
-    TextView textView1,textView2,textView3,textView4,textView5;
+    TextView textView1,textView2,textView3,textView4,textView5,textHotTea2;
     Button button1,button2,button3,button4,button5;
+    ImageButton menubutton2;
 
     private DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-    private ListView listView;
-    private ListAdapter listAdapter;
-    List<HashMap<String, String>> hashList;
+    //private ListView listView;
+    //private ListAdapter listAdapter;
+    //List<HashMap<String, String>> hashList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +48,13 @@ public class hisAns2 extends AppCompatActivity {
         textView3 = (TextView)findViewById(R.id.textView3);
         textView4 = (TextView)findViewById(R.id.textView4);
         textView5 = (TextView)findViewById(R.id.textView5);
+        textHotTea2 = (TextView)findViewById(R.id.textHotTea2);
         button1 = (Button)findViewById(R.id.button1);
         button2 = (Button)findViewById(R.id.button2);
         button3 = (Button)findViewById(R.id.button3);
         button4 = (Button)findViewById(R.id.button4);
         button5 = (Button)findViewById(R.id.button5);
+        menubutton2 = (ImageButton)findViewById(R.id.menubutton2);
 
         //抓在hisAsk頁面點的問題
         Intent it = getIntent();

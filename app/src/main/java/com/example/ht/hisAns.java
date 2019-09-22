@@ -63,6 +63,9 @@ public class hisAns extends AppCompatActivity {
                     String[] proname = new String[num];
                     String[] title = new String[num];
                     String[] content = new String[num];
+                        String[] problemid = new String[num];
+                        String[] replyid = new String[num];
+
                     hashList = new ArrayList();
 
                     //把所有reply Key抓進來
@@ -95,6 +98,8 @@ public class hisAns extends AppCompatActivity {
                         repKey = replyname[j];
                         title[j] = dataSnapshot.child("problem").child(proKey).child("title_problem").getValue(String.class);
                         content[j] = dataSnapshot.child("reply").child(repKey).child("content_reply").getValue(String.class);
+                             problemid[j] = dataSnapshot.child("problem").child(proKey).getKey();
+                             replyid[j] = dataSnapshot.child("reply").child(repKey).getKey();
                     }
 
                     //放進HashMap裡
@@ -105,6 +110,8 @@ public class hisAns extends AppCompatActivity {
                         HashMap<String, String> hashMap = new HashMap<>();
                         hashMap.put("title", title[h]);
                         hashMap.put("content", content[h]);
+                        hashMap.put("problemID", problemid[h]);
+                        hashMap.put("replyID", replyid[h]);
                         hashList.add(hashMap);
                     }
 
@@ -134,20 +141,40 @@ public class hisAns extends AppCompatActivity {
 
     //simpleAdapter listener
 
-                    AdapterView.OnItemClickListener onClickListView = new AdapterView.OnItemClickListener(){
+                private  AdapterView.OnItemClickListener onClickListView = new AdapterView.OnItemClickListener(){
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             //Toast.makeText(hisAns.this,"點選第 "+(position +1) +" 個 \n內容：", Toast.LENGTH_SHORT).show();
                             System.out.println("已點選:"+position);
 
                             Iterator it = hashList.iterator();
+                            Object o = hashList.get(position);
+                            String c = (String) ((HashMap) o).get("content");
+                            String t = (String)((HashMap) o).get("title");
+                            String p = (String) ((HashMap) o).get("problemID");
+                            String r = (String) ((HashMap) o).get("replyID");
+
+                            System.out.println(o);
+                            System.out.println(c);
+                            System.out.println(t);
+                            System.out.println(p);
+                            System.out.println(r);
+
+                            Intent intent = new Intent();
+                            intent.setClass(hisAns.this,realhisAns2.class);
+                            intent.putExtra("Content", c);
+                            intent.putExtra("Title",t);
+                            intent.putExtra("problemID", p);
+                            intent.putExtra("replyID", r);
+                            startActivity(intent);
+                            /*
                             while (it.hasNext()) {
                                 System.out.println(it.next());
                             }
                             if(it.hasNext() == false){
                                 System.out.println("No!");
                             }
-
+                            */
 
                             /*
                             bai = findViewById(R.id.bai);

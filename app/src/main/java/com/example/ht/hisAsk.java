@@ -67,55 +67,56 @@ public class hisAsk extends AppCompatActivity {
                     num = (int)(dataSnapshot.child("user").child(userId).child("problem").getChildrenCount());
                     System.out.println("This is num:"+num);
 
-                    String[] name = new String[num];
-                    String[] title = new String[num];
-                    String[] content = new String[num];
-                         String[] problemid = new String[num];
 
-                    hashList = new ArrayList();
+                            String[] name = new String[num];
+                            String[] title = new String[num];
+                            String[] content = new String[num];
+                            String[] problemid = new String[num];
 
-                    //把所有problem Key抓進來
-                    for(DataSnapshot d : dataSnapshot.child("user").child(userId).child("problem").getChildren()) {
-                        name[i] = d.getKey();
-                        i++;
-                    }
-                    //Test
-                    /*for(int j=0;j<name.length;j++) {
-                        System.out.println("This is all key" + name[j]);
-                    }*/
+                            hashList = new ArrayList();
 
-                    //用problemKey找title & content
-                    for(int j=0;j<name.length;j++) {
-                        proKey = name[j];
-                        title[j] = dataSnapshot.child("problem").child(proKey).child("title_problem").getValue(String.class);
-                        content[j] = dataSnapshot.child("problem").child(proKey).child("content_problem").getValue(String.class);
-                             problemid[j] = dataSnapshot.child("problem").child(proKey).getKey();
-                    }
+                            //把所有problem Key抓進來
+                            for (DataSnapshot d : dataSnapshot.child("user").child(userId).child("problem").getChildren()) {
+                                name[i] = d.getKey();
+                                i++;
+                            }
+                            //Test
+                        /*for(int j=0;j<name.length;j++) {
+                            System.out.println("This is all key" + name[j]);
+                        }*/
 
-                    //放進HashMap裡
-                    for(int h=0;h<title.length;h++){
-                        //System.out.println(title[h]);
-                        //System.out.println(content[h]);
+                            //用problemKey找title & content
+                            for (int j = 0; j < name.length; j++) {
+                                proKey = name[j];
+                                title[j] = dataSnapshot.child("problem").child(proKey).child("title_problem").getValue(String.class);
+                                content[j] = dataSnapshot.child("problem").child(proKey).child("content_problem").getValue(String.class);
+                                problemid[j] = dataSnapshot.child("problem").child(proKey).getKey();
+                            }
 
-                        HashMap<String, String> hashMap = new HashMap<>();
-                        hashMap.put("title", title[h]);
-                        hashMap.put("content", content[h]);
-                            hashMap.put("problemID",problemid[h]);
-                        hashList.add(hashMap);
-                    }
+                            //放進HashMap裡
+                            for (int h = 0; h < title.length; h++) {
+                                //System.out.println(title[h]);
+                                //System.out.println(content[h]);
 
-                    listView = (ListView) findViewById(R.id.listView);
+                                HashMap<String, String> hashMap = new HashMap<>();
+                                hashMap.put("title", title[h]);
+                                hashMap.put("content", content[h]);
+                                hashMap.put("problemID", problemid[h]);
+                                hashList.add(hashMap);
+                            }
 
-                    //只顯示title (Testing)
-                    /*ArrayList<String> titleList = new ArrayList<String>();
-                    titleList.addAll( Arrays.asList(title) );
-                    System.out.println("Here is titleList"+titleList);
-                    listAdapter = new ArrayAdapter<String>(hisAsk.this, android.R.layout.simple_list_item_1, titleList);*/
+                            listView = (ListView) findViewById(R.id.listView);
 
-                    //顯示title & content版本
-                    listAdapter = new SimpleAdapter(hisAsk.this,hashList, android.R.layout.simple_list_item_2, new String[]{"title", "content"}, new int[]{android.R.id.text1, android.R.id.text2});
-                    listView.setAdapter(listAdapter);
-                    listView.setOnItemClickListener(onClickListView);
+                            //只顯示title (Testing)
+                        /*ArrayList<String> titleList = new ArrayList<String>();
+                        titleList.addAll( Arrays.asList(title) );
+                        System.out.println("Here is titleList"+titleList);
+                        listAdapter = new ArrayAdapter<String>(hisAsk.this, android.R.layout.simple_list_item_1, titleList);*/
+
+                            //顯示title & content版本
+                            listAdapter = new SimpleAdapter(hisAsk.this, hashList, android.R.layout.simple_list_item_2, new String[]{"title", "content"}, new int[]{android.R.id.text1, android.R.id.text2});
+                            listView.setAdapter(listAdapter);
+                            listView.setOnItemClickListener(onClickListView);
 
 
                 }
@@ -138,14 +139,14 @@ public class hisAsk extends AppCompatActivity {
         Object o = hashList.get(position);
         String c = (String) ((HashMap) o).get("content");
         String t = (String)((HashMap) o).get("title");
-             String r = (String) ((HashMap) o).get("problemID");
+        String p = (String) ((HashMap) o).get("problemID");
 
 
 
         System.out.println(o);
         System.out.println(c);
         System.out.println(t);
-            System.out.println(r);
+        System.out.println(p);
 
         /*想接上面丟下來的userID
         Intent itt = getIntent();
@@ -157,7 +158,7 @@ public class hisAsk extends AppCompatActivity {
         intent.setClass(hisAsk.this,hisAns2.class);
         intent.putExtra("Content", c);
         intent.putExtra("Title",t);
-            intent.putExtra("problemID", r);
+        intent.putExtra("problemID", p);
         startActivity(intent);
 
 

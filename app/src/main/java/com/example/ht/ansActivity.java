@@ -129,45 +129,65 @@ public class ansActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 if (dataSnapshot.exists()) {
-                  do {
+
                       int i = 0;
 
 
                       //抓problem總數
+                      /*
                       num = Integer.parseInt(String.valueOf(dataSnapshot.child("count_problem").getValue()));
                       System.out.println("This is num:" + dataSnapshot.child("count_problem").getValue());
+                      */
+                      num = Integer.parseInt(String.valueOf(dataSnapshot.child("user").child(userId).child("waitreply").getChildrenCount()) );
+                      System.out.println("this user has "+num+" problem waitreply");
                       String[] name = new String[num];
 
                       //把所有problem Key抓進來
+                     /*
                       for (DataSnapshot d : dataSnapshot.child("problem").getChildren()) {
                           name[i] = d.getKey();
                           i++;
                       }
-                      //Test
-                    /*for(int j=0;j<num;j++) {
-                        System.out.println("This is all key" + name[j]);
-                    }*/
+                      */
+                     if(num != 0) {
+                         for (DataSnapshot d : dataSnapshot.child("user").child(userId).child("waitreply").getChildren()) {
+                             name[i] = d.getKey();
+                             i++;
+                         }
+                         //Test
+                        /*for(int j=0;j<num;j++) {
+                            System.out.println("This is all key" + name[j]);
+                        }*/
 
 
-                      //10可以改成抓線上problem的數量count
-                      ranPick = (int) (Math.random() * num);
+                         //10可以改成抓線上problem的數量count
+                         ranPick = (int) (Math.random() * num);
 
 
-                      // ranPick = (int)(Math.random()* Double.parseDouble(userCount));
+                         // ranPick = (int)(Math.random()* Double.parseDouble(userCount));
 
-                      //System.out.println("This is ranPick:"+ranPick);
-                      proKey = name[ranPick];
+                         //System.out.println("This is ranPick:"+ranPick);
+                         proKey = name[ranPick];
 
-                    System.out.println(dataSnapshot.child("problem").child(proKey).child("from").getValue());
-                      //System.out.println("This is content:"+content);
-                  }
-                  while(dataSnapshot.child("problem").child(proKey).child("from").getValue().equals(userId));
+                         System.out.println(dataSnapshot.child("problem").child(proKey).child("from").getValue());
 
-                          String title = dataSnapshot.child("problem").child(proKey).child("title_problem").getValue(String.class);
-                          questitle.setText(title);
-                          //System.out.println("This is title:"+title);
-                          String content = dataSnapshot.child("problem").child(proKey).child("content_problem").getValue(String.class);
+                         //System.out.println("This is content:"+content);
+
+
+                         String title = dataSnapshot.child("problem").child(proKey).child("title_problem").getValue(String.class);
+                         String content = dataSnapshot.child("problem").child(proKey).child("content_problem").getValue(String.class);
+
+                         questitle.setText(title);
                          quescontent.setText(content);
+                     }
+                     else{
+                         questitle.setText("");
+                         quescontent.setText("暫無問題");
+                         quescontent.setTextSize(32);
+                     }
+
+
+
                 }
             }
 
