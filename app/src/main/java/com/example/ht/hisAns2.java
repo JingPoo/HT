@@ -1,9 +1,11 @@
 package com.example.ht;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -128,12 +130,69 @@ public class hisAns2 extends AppCompatActivity {
                 }
             }
 
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
 
+        //送茶
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LayoutInflater inflater=LayoutInflater.from(hisAns2.this);
+                final View popView= inflater.inflate(R.layout.give_tea,null);
+                final AlertDialog.Builder builder=new AlertDialog.Builder(hisAns2.this);
+                builder.setView(popView);
+                final AlertDialog dialog=builder.setNegativeButton("取消",null).setPositiveButton("選擇", null).create();
+                dialog.show();
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LayoutInflater inflater=LayoutInflater.from(hisAns2.this);
+                final View popView= inflater.inflate(R.layout.give_tea,null);
+                final AlertDialog.Builder builder=new AlertDialog.Builder(hisAns2.this);
+                builder.setView(popView);
+                final AlertDialog dialog=builder.setNegativeButton("取消",null).setPositiveButton("選擇", null).create();
+                dialog.show();
+            }
+        });
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LayoutInflater inflater=LayoutInflater.from(hisAns2.this);
+                final View popView= inflater.inflate(R.layout.give_tea,null);
+                final AlertDialog.Builder builder=new AlertDialog.Builder(hisAns2.this);
+                builder.setView(popView);
+                final AlertDialog dialog=builder.setNegativeButton("取消",null).setPositiveButton("選擇", null).create();
+                dialog.show();
+            }
+        });
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LayoutInflater inflater=LayoutInflater.from(hisAns2.this);
+                final View popView= inflater.inflate(R.layout.give_tea,null);
+                final AlertDialog.Builder builder=new AlertDialog.Builder(hisAns2.this);
+                builder.setView(popView);
+                final AlertDialog dialog=builder.setNegativeButton("取消",null).setPositiveButton("選擇", null).create();
+                dialog.show();
+            }
+        });
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LayoutInflater inflater=LayoutInflater.from(hisAns2.this);
+                final View popView= inflater.inflate(R.layout.give_tea,null);
+                final AlertDialog.Builder builder=new AlertDialog.Builder(hisAns2.this);
+                builder.setView(popView);
+                final AlertDialog dialog=builder.setNegativeButton("取消",null).setPositiveButton("選擇", null).create();
+                dialog.show();
+            }
+        });
        /* hashList = new ArrayList();
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("Title",Title);
