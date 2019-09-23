@@ -92,6 +92,8 @@ public class ansActivity extends AppCompatActivity {
         reject.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
+                userRef.child(userId).child("waitreply").child(proKey).setValue("-1");
+
                 new AlertDialog.Builder(ansActivity.this)
                         .setIcon(R.drawable.logo)
                         .setTitle("我們收到了！謝謝你撥空閱讀這則提問。")
@@ -151,8 +153,15 @@ public class ansActivity extends AppCompatActivity {
                       */
                      if(num != 0) {
                          for (DataSnapshot d : dataSnapshot.child("user").child(userId).child("waitreply").getChildren()) {
-                             name[i] = d.getKey();
-                             i++;
+                             if(d.getValue().toString().equals("-1")){
+                                 System.out.println("no get -1");
+                                 num--;
+                             }
+                             else{
+                                 name[i] = d.getKey();
+                                 i++;
+                             }
+
                          }
                          //Test
                         /*for(int j=0;j<num;j++) {
