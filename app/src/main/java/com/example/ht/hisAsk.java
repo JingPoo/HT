@@ -219,6 +219,12 @@ public class hisAsk extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+
     public void gotohome(View v) {
 
         finish();
@@ -234,6 +240,7 @@ public class hisAsk extends AppCompatActivity {
         Intent it = new Intent(this, hisAns.class );
         it.putExtra("UserId", userId);
         startActivity(it);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
 

@@ -2,23 +2,23 @@ package com.example.ht;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import maes.tech.intentanim.CustomIntent;
 
 public class mainPageActivity extends AppCompatActivity {
 
@@ -52,6 +52,7 @@ public class mainPageActivity extends AppCompatActivity {
         //Toast.makeText(this, "Here is userId:"+userId, Toast.LENGTH_SHORT).show();
         System.out.println("Here is userID(MainPage):"+userId);
 
+        //askbutton.setOnDragListener();
         //教學彈出視窗:進入最近回答
         teach.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,6 +137,7 @@ public class mainPageActivity extends AppCompatActivity {
         Intent it = new Intent(this, hisAsk.class );
         it.putExtra("UserId", userId);
         startActivity(it);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void gotomenu(View v) {
