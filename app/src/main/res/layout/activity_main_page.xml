@@ -55,12 +55,13 @@
         app:srcCompat="@drawable/mountain" />
 
     //茶杯按鈕-發問
+
     <ImageButton
         android:id="@+id/asknowButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="340dp"
-        android:layout_marginEnd="192dp"
+        android:layout_width="110dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="348dp"
+        android:layout_marginEnd="212dp"
         android:background="#00FFFFFF"
         android:onClick="gotoask"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,9 +72,10 @@
 
     <ImageButton
         android:id="@+id/ansnowButton"
-        android:layout_width="257dp"
-        android:layout_height="296dp"
-        android:layout_marginTop="228dp"
+        android:layout_width="198dp"
+        android:layout_height="184dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="24dp"
         android:background="#00FFFFFF"
         android:onClick="gotoans"
         app:layout_constraintEnd_toEndOf="parent"
