@@ -252,6 +252,7 @@ public class ansActivity extends AppCompatActivity {
         //是否有欄位為空
         if (ans.isEmpty() ){
             Toast.makeText(this, "標題或內容有缺漏，請再檢查一次", Toast.LENGTH_SHORT).show();
+            contain = true;
         }
         for (int i=0;i<a.size();i++) {
             //-1是沒有髒話

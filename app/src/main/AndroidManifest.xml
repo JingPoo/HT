@@ -23,10 +23,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-        <activity android:name=".realhisAns2"></activity>
-
+        <activity android:name=".sendTeaActivity"></activity>
+        <activity android:name=".realhisAns2" />
         <activity android:name=".encycloActivity" />
         <activity android:name=".hisAns2" />
         <!--

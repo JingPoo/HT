@@ -73,6 +73,21 @@ public class realhisAns2 extends AppCompatActivity {
             }
         });
 
+        rootRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    if(dataSnapshot.child("reply").child(repID).child("id_tea").getValue(String.class) != "001") {
+                        teatextView.setText("您收到: "+dataSnapshot.child("reply").child(repID).child("id_tea").getValue(String.class));
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
     }

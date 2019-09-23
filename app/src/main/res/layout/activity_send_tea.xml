@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EDF1D5"
+    tools:context=".sendTeaActivity">
+
+    <ImageButton
+        android:id="@+id/asa"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="24dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/asa"
+        app:layout_constraintEnd_toStartOf="@+id/fe"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/fe"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="32dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/milk"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fe" />
+
+    <ImageButton
+        android:id="@+id/milk"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="60dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/milk" />
+
+    <ImageButton
+        android:id="@+id/gold"
+        android:layout_width="94dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="60dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/milkT"
+        app:srcCompat="@drawable/gold" />
+
+    <ImageButton
+        android:id="@+id/fu"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/gold"
+        app:layout_constraintStart_toEndOf="@+id/four"
+        app:layout_constraintTop_toBottomOf="@+id/feT"
+        app:srcCompat="@drawable/fu" />
+
+    <ImageButton
+        android:id="@+id/bai"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="60dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goldT"
+        app:srcCompat="@drawable/four" />
+
+    <ImageButton
+        android:id="@+id/green"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fourT"
+        app:srcCompat="@drawable/green" />
+
+    <ImageButton
+        android:id="@+id/poo"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/green"
+        app:layout_constraintTop_toBottomOf="@+id/fuT"
+        app:srcCompat="@drawable/poo" />
+
+    <ImageButton
+        android:id="@+id/four"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/asaT"
+        app:srcCompat="@drawable/four" />
+
+    <TextView
+        android:id="@+id/asaT"
+        android:layout_width="103dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="12dp"
+        android:text="阿薩姆紅茶-\n安定人心"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/asa" />
+
+    <TextView
+        android:id="@+id/feT"
+        android:layout_width="97dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="鐵觀音-\n有深遠影響"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/asaT"
+        app:layout_constraintTop_toBottomOf="@+id/fe" />
+
+    <TextView
+        android:id="@+id/milkT"
+        android:layout_width="92dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:text="奶茶-\n甜蜜無比"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/feT"
+        app:layout_constraintTop_toBottomOf="@+id/milk" />
+
+    <TextView
+        android:id="@+id/fourT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
+        android:text="四季春-\n深入人心"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/four" />
+
+    <TextView
+        android:id="@+id/fuT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:text="佛手茶-\n印象深刻"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/fourT"
+        app:layout_constraintTop_toBottomOf="@+id/fu" />
+
+    <TextView
+        android:id="@+id/goldT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="金萱茶-\n獨特又別具心裁"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/fuT"
+        app:layout_constraintTop_toBottomOf="@+id/gold" />
+
+    <TextView
+        android:id="@+id/greenT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
+        android:text="抹茶-\n溫順甘甜"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/green" />
+
+    <TextView
+        android:id="@+id/pooT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="普洱茶-\n苦澀真實"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/greenT"
+        app:layout_constraintTop_toBottomOf="@+id/poo" />
+
+    <TextView
+        android:id="@+id/baiT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:text="白毫烏龍茶-\n淡淡的溫暖"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bai" />
+</android.support.constraint.ConstraintLayout>

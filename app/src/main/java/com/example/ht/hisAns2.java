@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
@@ -31,9 +33,16 @@ public class hisAns2 extends AppCompatActivity {
     String Title = "";
     String proID = "";
 
+    String repID1 ="";
+    String repID2 ="";
+    String repID3 ="";
+    String repID4 ="";
+    String repID5 ="";
+
     TextView textView1,textView2,textView3,textView4,textView5,textHotTea2;
     Button button1,button2,button3,button4,button5;
     ImageButton menubutton2;
+    RadioButton radioButton,radioButton2,radioButton3,radioButton4,radioButton5,radioButton6,radioButton7,radioButton8,radioButton9;
 
     private DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
     //private ListView listView;
@@ -57,6 +66,16 @@ public class hisAns2 extends AppCompatActivity {
         button4 = (Button)findViewById(R.id.button4);
         button5 = (Button)findViewById(R.id.button5);
         menubutton2 = (ImageButton)findViewById(R.id.menubutton2);
+        radioButton = (RadioButton)findViewById(R.id.radioButton);
+        radioButton2 = (RadioButton)findViewById(R.id.radioButton2);
+        radioButton3= (RadioButton)findViewById(R.id.radioButton3);
+        radioButton4 = (RadioButton)findViewById(R.id.radioButton4);
+        radioButton5 = (RadioButton)findViewById(R.id.radioButton5);
+        radioButton6 = (RadioButton)findViewById(R.id.radioButton6);
+        radioButton7 = (RadioButton)findViewById(R.id.radioButton7);
+        radioButton8 = (RadioButton)findViewById(R.id.radioButton8);
+        radioButton9 = (RadioButton)findViewById(R.id.radioButton9);
+
 
         //抓在hisAsk頁面點的問題
         Intent it = getIntent();
@@ -79,6 +98,11 @@ public class hisAns2 extends AppCompatActivity {
                         System.out.println(replyID[i]);
                         i++;
                     }
+                    repID1 = replyID[0];
+                    repID2 = replyID[1];
+                    repID3 = replyID[2];
+                    repID4 = replyID[3];
+                    repID5 = replyID[4];
 
 
                     //接下來就是要用replyID去抓reply的內容進textview
@@ -137,6 +161,8 @@ public class hisAns2 extends AppCompatActivity {
             }
         });
 
+
+/*
         //送茶
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,8 +171,71 @@ public class hisAns2 extends AppCompatActivity {
                 final View popView= inflater.inflate(R.layout.give_tea,null);
                 final AlertDialog.Builder builder=new AlertDialog.Builder(hisAns2.this);
                 builder.setView(popView);
-                final AlertDialog dialog=builder.setNegativeButton("取消",null).setPositiveButton("選擇", null).create();
+                final AlertDialog dialog=builder.setNegativeButton("取消",null).setPositiveButton("選擇",null).create();
                 dialog.show();
+
+            radioButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    System.out.println("fu");
+                }
+            });
+                radioButton2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        System.out.println("gold");
+                    }
+                });
+                radioButton3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        System.out.println("milk");
+                    }
+                });
+                radioButton4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        System.out.println("asa");
+                    }
+                });
+                radioButton5.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        System.out.println("four");
+                    }
+                });
+                radioButton6.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        System.out.println("green");
+                    }
+                });
+                radioButton7.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        System.out.println("poo");
+                    }
+                });
+                radioButton8.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        System.out.println("fe");
+                    }
+                });
+                radioButton9.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        System.out.println("bai");
+                    }
+                });
+
+
+
+
+
+
+
+
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
@@ -193,6 +282,8 @@ public class hisAns2 extends AppCompatActivity {
                 dialog.show();
             }
         });
+*/
+
        /* hashList = new ArrayList();
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("Title",Title);
@@ -204,7 +295,36 @@ public class hisAns2 extends AppCompatActivity {
         listView.setAdapter(listAdapter);
         */
     }
+    public void gotosendtea1(View v) {
+        Intent it = new Intent(this, sendTeaActivity.class);
+        it.putExtra("replyID", repID1);
+        startActivity(it);
 
+    }
+    public void gotosendtea2(View v) {
+        Intent it = new Intent(this, sendTeaActivity.class);
+        it.putExtra("replyID", repID2);
+        startActivity(it);
+
+    }
+    public void gotosendtea3(View v) {
+        Intent it = new Intent(this, sendTeaActivity.class);
+        it.putExtra("replyID", repID3);
+        startActivity(it);
+
+    }
+    public void gotosendtea4(View v) {
+        Intent it = new Intent(this, sendTeaActivity.class);
+        it.putExtra("replyID", repID4);
+        startActivity(it);
+
+    }
+    public void gotosendtea5(View v) {
+        Intent it = new Intent(this, sendTeaActivity.class);
+        it.putExtra("replyID", repID5);
+        startActivity(it);
+
+    }
     public void gotohome(View v) {
 
         finish();
