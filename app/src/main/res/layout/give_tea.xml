@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="28dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/asa"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/imageButton3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/milk" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fe" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton5"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton4"
+        app:srcCompat="@drawable/four" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton8"
+        app:srcCompat="@drawable/fu" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="88dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/imageButton5"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton3"
+        app:srcCompat="@drawable/gold" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton8"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton5"
+        app:srcCompat="@drawable/green" />
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton"
+        app:srcCompat="@drawable/poo" />
+
+    <ImageButton
+        android:id="@+id/imageButton9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/imageButton8"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton2"
+        app:srcCompat="@drawable/four" />
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="90dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="佛手茶-印象深刻"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
+
+    <RadioButton
+        android:id="@+id/radioButton3"
+        android:layout_width="90dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="奶茶-甜蜜無比"
+        app:layout_constraintStart_toEndOf="@+id/radioButton8"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="90dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:text="金萱茶-獨特又別具心裁"
+        app:layout_constraintStart_toEndOf="@+id/radioButton"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
+
+    <RadioButton
+        android:id="@+id/radioButton7"
+        android:layout_width="90dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="普洱茶-苦澀真實"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton8" />
+
+    <RadioButton
+        android:id="@+id/radioButton9"
+        android:layout_width="90dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="白毫烏龍茶-淡淡的溫暖"
+        app:layout_constraintStart_toEndOf="@+id/radioButton7"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton9" />
+
+    <RadioButton
+        android:id="@+id/radioButton6"
+        android:layout_width="90dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="抹茶-溫順甘甜"
+        app:layout_constraintEnd_toStartOf="@+id/radioButton7"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton7" />
+
+    <RadioButton
+        android:id="@+id/radioButton8"
+        android:layout_width="90dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="鐵觀音-有深遠影響"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
+
+    <RadioButton
+        android:id="@+id/radioButton5"
+        android:layout_width="90dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="四季春-深入人心"
+        app:layout_constraintEnd_toStartOf="@+id/radioButton"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
+
+    <RadioButton
+        android:id="@+id/radioButton4"
+        android:layout_width="90dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="阿薩姆紅茶-安定人心"
+        app:layout_constraintEnd_toStartOf="@+id/radioButton8"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+</android.support.constraint.ConstraintLayout>
