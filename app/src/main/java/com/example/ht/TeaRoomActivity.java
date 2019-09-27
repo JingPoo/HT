@@ -68,7 +68,7 @@ public class TeaRoomActivity extends AppCompatActivity {
                                      Toast.makeText(TeaRoomActivity.this, "您已收集了"+baiAmount+"個此茶葉!", Toast.LENGTH_SHORT).show();
                                  }
                                  if(baiAmount == 0) {
-                                     Toast.makeText(TeaRoomActivity.this, "您尚未收集此茶葉", Toast.LENGTH_SHORT);
+                                     Toast.makeText(TeaRoomActivity.this, "您尚未收集此茶葉", Toast.LENGTH_SHORT).show();
                                  }
                              }
                          });
